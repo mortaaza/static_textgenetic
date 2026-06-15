@@ -32,18 +32,39 @@
   <header class="site-header" id="top">
     <div class="container header__inner">
       <a class="brand" href="#top" aria-label="TextGenetic AI home">
-        <svg class="brand__mark" width="42" height="42" viewBox="0 0 64 64" aria-hidden="true">
-          <g fill="currentColor">
-            <circle cx="12" cy="20" r="4"/><circle cx="12" cy="44" r="4"/>
-            <circle cx="24" cy="14" r="3.4" opacity=".85"/><circle cx="24" cy="50" r="3.4" opacity=".85"/>
-            <circle cx="36" cy="20" r="4.6"/><circle cx="36" cy="44" r="4.6"/>
-            <circle cx="48" cy="28" r="3.2" opacity=".7"/><circle cx="48" cy="36" r="3.2" opacity=".7"/>
-            <circle cx="54" cy="32" r="5"/>
-            <path d="M12 24c8 6 16 6 24 0M12 40c8-6 16-6 24 0" stroke="currentColor" stroke-width="2.4" fill="none" opacity=".45"/>
+        <svg class="brand__mark" width="44" height="44" viewBox="0 0 64 64" role="img" aria-label="TextGenetic AI logo">
+          <defs>
+            <linearGradient id="tgStrand" x1="14" y1="6" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#37c2e6"/>
+              <stop offset="1" stop-color="#1e63ff"/>
+            </linearGradient>
+          </defs>
+          <!-- synapse rungs -->
+          <g stroke="#0b1e57" stroke-width="2" stroke-linecap="round" opacity=".28">
+            <line x1="21.5" y1="14" x2="42.5" y2="14"/>
+            <line x1="21.5" y1="26" x2="42.5" y2="26"/>
+            <line x1="21.5" y1="38" x2="42.5" y2="38"/>
+            <line x1="21.5" y1="50" x2="42.5" y2="50"/>
+          </g>
+          <!-- back strand -->
+          <path d="M32 8 C18 8 18 20 32 20 C46 20 46 32 32 32 C18 32 18 44 32 44 C46 44 46 56 32 56"
+                fill="none" stroke="#0b1e57" stroke-width="3.4" stroke-linecap="round" opacity=".92"/>
+          <!-- front strand -->
+          <path d="M32 8 C46 8 46 20 32 20 C18 20 18 32 32 32 C46 32 46 44 32 44 C18 44 18 56 32 56"
+                fill="none" stroke="url(#tgStrand)" stroke-width="3.4" stroke-linecap="round"/>
+          <!-- nodes -->
+          <g>
+            <circle cx="42.5" cy="14" r="3" fill="#37c2e6"/><circle cx="21.5" cy="26" r="3" fill="#37c2e6"/>
+            <circle cx="42.5" cy="38" r="3" fill="#37c2e6"/><circle cx="21.5" cy="50" r="3" fill="#37c2e6"/>
+            <circle cx="21.5" cy="14" r="3" fill="#1e63ff"/><circle cx="42.5" cy="26" r="3" fill="#1e63ff"/>
+            <circle cx="21.5" cy="38" r="3" fill="#1e63ff"/><circle cx="42.5" cy="50" r="3" fill="#1e63ff"/>
+            <circle cx="32" cy="8" r="2.1" fill="#0b1e57"/><circle cx="32" cy="20" r="2.1" fill="#0b1e57"/>
+            <circle cx="32" cy="32" r="2.8" fill="#1e63ff"/>
+            <circle cx="32" cy="44" r="2.1" fill="#0b1e57"/><circle cx="32" cy="56" r="2.1" fill="#0b1e57"/>
           </g>
         </svg>
         <span class="brand__text">
-          <strong>TextGenetic</strong><span>AI&nbsp;Inc.</span>
+          <strong>Text<span class="brand__accent">Genetic</span></strong><span class="brand__sub">AI&nbsp;Inc.</span>
         </span>
       </a>
 
@@ -389,7 +410,7 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <span class="brand__text">
-          <strong>TextGenetic</strong><span>AI&nbsp;Inc.</span>
+          <strong>Text<span class="brand__accent">Genetic</span></strong><span class="brand__sub">AI&nbsp;Inc.</span>
         </span>
         <p class="muted">Pioneering Integrated AI.<br/>Kitchener, Ontario, Canada.</p>
       </div>
