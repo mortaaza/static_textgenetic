@@ -1,33 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" role="img" aria-label="TextGenetic AI Inc.">
   <defs>
-    <linearGradient id="logoStrand" x1="14" y1="6" x2="50" y2="58" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#37c2e6"/>
-      <stop offset="1" stop-color="#1e63ff"/>
+    <linearGradient id="lg" x1="12" y1="14" x2="52" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7fe3f7"/>
+      <stop offset="1" stop-color="#4f9bff"/>
     </linearGradient>
   </defs>
 
-  <!-- mark -->
-  <g transform="translate(6 18)">
-    <g stroke="#0b1e57" stroke-width="2" stroke-linecap="round" opacity=".28">
-      <line x1="21.5" y1="14" x2="42.5" y2="14"/>
-      <line x1="21.5" y1="26" x2="42.5" y2="26"/>
-      <line x1="21.5" y1="38" x2="42.5" y2="38"/>
-      <line x1="21.5" y1="50" x2="42.5" y2="50"/>
+  <!-- monogram tile -->
+  <g transform="translate(8 18)">
+    <rect width="64" height="64" rx="15" fill="#0b1e57"/>
+    <g stroke="#37c2e6" stroke-width="1.4" opacity=".5" stroke-linecap="round">
+      <line x1="36" y1="18" x2="50" y2="24"/><line x1="24" y1="46" x2="43" y2="34"/>
     </g>
-    <path d="M32 8 C18 8 18 20 32 20 C46 20 46 32 32 32 C18 32 18 44 32 44 C46 44 46 56 32 56"
-          fill="none" stroke="#0b1e57" stroke-width="3.4" stroke-linecap="round" opacity=".92"/>
-    <path d="M32 8 C46 8 46 20 32 20 C18 20 18 32 32 32 C46 32 46 44 32 44 C18 44 18 56 32 56"
-          fill="none" stroke="url(#logoStrand)" stroke-width="3.4" stroke-linecap="round"/>
-    <circle cx="42.5" cy="14" r="3" fill="#37c2e6"/><circle cx="21.5" cy="26" r="3" fill="#37c2e6"/>
-    <circle cx="42.5" cy="38" r="3" fill="#37c2e6"/><circle cx="21.5" cy="50" r="3" fill="#37c2e6"/>
-    <circle cx="21.5" cy="14" r="3" fill="#1e63ff"/><circle cx="42.5" cy="26" r="3" fill="#1e63ff"/>
-    <circle cx="21.5" cy="38" r="3" fill="#1e63ff"/><circle cx="42.5" cy="50" r="3" fill="#1e63ff"/>
-    <circle cx="32" cy="32" r="2.8" fill="#1e63ff"/>
+    <g fill="none" stroke="url(#lg)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 18 H36"/><path d="M24 18 V46"/>
+      <path d="M50 24 A11 11 0 1 0 50 40"/><path d="M50 34 H43"/>
+    </g>
+    <g fill="#ffffff">
+      <circle cx="12" cy="18" r="3"/><circle cx="36" cy="18" r="3"/><circle cx="24" cy="46" r="3"/>
+      <circle cx="50" cy="24" r="3"/><circle cx="50" cy="40" r="3"/>
+    </g>
+    <circle cx="43" cy="34" r="3" fill="#7fe3f7"/>
   </g>
 
   <!-- wordmark -->
-  <text x="86" y="52" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="34" letter-spacing="-1">
+  <text x="92" y="52" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="34" letter-spacing="-1">
     <tspan fill="#0b1e57">Text</tspan><tspan fill="#1e63ff">Genetic</tspan>
   </text>
-  <text x="88" y="74" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="700" font-size="11.5" letter-spacing="3.4" fill="#1e63ff">AI · NEUROANALYTICS</text>
+  <text x="94" y="74" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="700" font-size="11.5" letter-spacing="3.4" fill="#1e63ff">AI · NEUROANALYTICS</text>
 </svg>

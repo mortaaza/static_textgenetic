@@ -34,34 +34,24 @@
       <a class="brand" href="#top" aria-label="TextGenetic AI home">
         <svg class="brand__mark" width="44" height="44" viewBox="0 0 64 64" role="img" aria-label="TextGenetic AI logo">
           <defs>
-            <linearGradient id="tgStrand" x1="14" y1="6" x2="50" y2="58" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#37c2e6"/>
-              <stop offset="1" stop-color="#1e63ff"/>
+            <linearGradient id="tgMono" x1="12" y1="14" x2="52" y2="48" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#7fe3f7"/>
+              <stop offset="1" stop-color="#4f9bff"/>
             </linearGradient>
           </defs>
-          <!-- synapse rungs -->
-          <g stroke="#0b1e57" stroke-width="2" stroke-linecap="round" opacity=".28">
-            <line x1="21.5" y1="14" x2="42.5" y2="14"/>
-            <line x1="21.5" y1="26" x2="42.5" y2="26"/>
-            <line x1="21.5" y1="38" x2="42.5" y2="38"/>
-            <line x1="21.5" y1="50" x2="42.5" y2="50"/>
+          <rect width="64" height="64" rx="15" fill="#0b1e57"/>
+          <g stroke="#37c2e6" stroke-width="1.4" opacity=".5" stroke-linecap="round">
+            <line x1="36" y1="18" x2="50" y2="24"/><line x1="24" y1="46" x2="43" y2="34"/>
           </g>
-          <!-- back strand -->
-          <path d="M32 8 C18 8 18 20 32 20 C46 20 46 32 32 32 C18 32 18 44 32 44 C46 44 46 56 32 56"
-                fill="none" stroke="#0b1e57" stroke-width="3.4" stroke-linecap="round" opacity=".92"/>
-          <!-- front strand -->
-          <path d="M32 8 C46 8 46 20 32 20 C18 20 18 32 32 32 C46 32 46 44 32 44 C18 44 18 56 32 56"
-                fill="none" stroke="url(#tgStrand)" stroke-width="3.4" stroke-linecap="round"/>
-          <!-- nodes -->
-          <g>
-            <circle cx="42.5" cy="14" r="3" fill="#37c2e6"/><circle cx="21.5" cy="26" r="3" fill="#37c2e6"/>
-            <circle cx="42.5" cy="38" r="3" fill="#37c2e6"/><circle cx="21.5" cy="50" r="3" fill="#37c2e6"/>
-            <circle cx="21.5" cy="14" r="3" fill="#1e63ff"/><circle cx="42.5" cy="26" r="3" fill="#1e63ff"/>
-            <circle cx="21.5" cy="38" r="3" fill="#1e63ff"/><circle cx="42.5" cy="50" r="3" fill="#1e63ff"/>
-            <circle cx="32" cy="8" r="2.1" fill="#0b1e57"/><circle cx="32" cy="20" r="2.1" fill="#0b1e57"/>
-            <circle cx="32" cy="32" r="2.8" fill="#1e63ff"/>
-            <circle cx="32" cy="44" r="2.1" fill="#0b1e57"/><circle cx="32" cy="56" r="2.1" fill="#0b1e57"/>
+          <g fill="none" stroke="url(#tgMono)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 18 H36"/><path d="M24 18 V46"/>
+            <path d="M50 24 A11 11 0 1 0 50 40"/><path d="M50 34 H43"/>
           </g>
+          <g fill="#ffffff">
+            <circle cx="12" cy="18" r="3"/><circle cx="36" cy="18" r="3"/><circle cx="24" cy="46" r="3"/>
+            <circle cx="50" cy="24" r="3"/><circle cx="50" cy="40" r="3"/>
+          </g>
+          <circle cx="43" cy="34" r="3" fill="#7fe3f7"/>
         </svg>
         <span class="brand__text">
           <strong>Text<span class="brand__accent">Genetic</span></strong><span class="brand__sub">AI&nbsp;Inc.</span>

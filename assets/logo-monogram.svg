@@ -6,16 +6,25 @@
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="15" fill="#0b1e57"/>
+  <!-- faint synapse links -->
   <g stroke="#37c2e6" stroke-width="1.4" opacity=".5" stroke-linecap="round">
-    <line x1="36" y1="18" x2="50" y2="24"/><line x1="24" y1="46" x2="43" y2="34"/>
+    <line x1="36" y1="18" x2="50" y2="24"/>
+    <line x1="24" y1="46" x2="43" y2="34"/>
   </g>
+  <!-- TG strokes -->
   <g fill="none" stroke="url(#mg)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 18 H36"/><path d="M24 18 V46"/>
-    <path d="M50 24 A11 11 0 1 0 50 40"/><path d="M50 34 H43"/>
+    <path d="M12 18 H36"/>
+    <path d="M24 18 V46"/>
+    <path d="M50 24 A11 11 0 1 0 50 40"/>
+    <path d="M50 34 H43"/>
   </g>
+  <!-- neural nodes at terminals -->
   <g fill="#ffffff">
-    <circle cx="12" cy="18" r="3"/><circle cx="36" cy="18" r="3"/><circle cx="24" cy="46" r="3"/>
-    <circle cx="50" cy="24" r="3"/><circle cx="50" cy="40" r="3"/>
+    <circle cx="12" cy="18" r="3"/>
+    <circle cx="36" cy="18" r="3"/>
+    <circle cx="24" cy="46" r="3"/>
+    <circle cx="50" cy="24" r="3"/>
+    <circle cx="50" cy="40" r="3"/>
   </g>
   <circle cx="43" cy="34" r="3" fill="#7fe3f7"/>
 </svg>
