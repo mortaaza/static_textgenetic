@@ -1,5 +1,6 @@
 // TextGenetic AI — lightweight interactions (no dependencies)
 (function () {
+  document.documentElement.classList.add('js');
   var toggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');
 
@@ -19,12 +20,28 @@
     });
   });
 
-  // Back-to-top button visibility
+  // Back-to-top button + compact header on scroll
   var toTop = document.querySelector('.to-top');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 480) toTop.classList.add('show');
-    else toTop.classList.remove('show');
-  });
+  var header = document.querySelector('.site-header');
+  var onScroll = function () {
+    toTop.classList.toggle('show', window.scrollY > 480);
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal sections/cards as they scroll into view
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
 
   // Contact form: posts to a form service if data-endpoint is set,
   // otherwise opens the visitor's email app with the message filled in.
