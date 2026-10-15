@@ -248,6 +248,29 @@ img{max-width:100%;display:block}
 .cta{background:linear-gradient(120deg,var(--cyan) 0%,var(--blue) 50%,var(--violet) 100%);color:#fff}
 .cta__inner{text-align:center;max-width:760px}
 .cta__actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.cta__grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.cta__direct{margin:22px 0 0;color:#eef2ff}
+.cta__direct a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Contact form ---------- */
+.contact-form{background:#fff;color:var(--ink);border-radius:22px;padding:30px 28px;
+  box-shadow:0 24px 60px rgba(10,21,51,.28);display:grid;gap:16px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cf-field{display:grid;gap:6px;font-size:.88rem;font-weight:600;color:var(--slate)}
+.cf-field em{font-style:normal;font-weight:500;color:var(--mute)}
+.cf-field input,.cf-field select,.cf-field textarea{font:inherit;font-weight:400;font-size:.97rem;color:var(--ink);
+  background:var(--bg-tint);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;
+  transition:border-color .15s,box-shadow .15s,background .15s}
+.cf-field textarea{resize:vertical;min-height:120px}
+.cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{outline:none;background:#fff;
+  border-color:var(--blue);box-shadow:0 0 0 4px rgba(10,92,255,.14)}
+.cf-field .invalid{border-color:#e5484d;box-shadow:0 0 0 4px rgba(229,72,77,.12)}
+.cf-submit{justify-self:start;border:0}
+.cf-submit[disabled]{opacity:.6;cursor:wait;transform:none}
+.cf-status{margin:0;font-size:.92rem;min-height:1.4em}
+.cf-status.ok{color:#127a4a}
+.cf-status.err{color:#c4282d}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 
 /* ---------- Footer ---------- */
 .footer{background:var(--navy-2);color:#cdd6ef;padding:64px 0 26px}
@@ -268,6 +291,7 @@ img{max-width:100%;display:block}
 
 /* ---------- Responsive ---------- */
 @media (max-width:980px){
+  .cta__grid{grid-template-columns:1fr;gap:32px}
   .cards{grid-template-columns:repeat(2,1fr)}
   .cards--proj{grid-template-columns:1fr}
   .focus-grid{grid-template-columns:1fr}
@@ -282,6 +306,9 @@ img{max-width:100%;display:block}
   .footer__inner{grid-template-columns:1fr}
 }
 @media (max-width:760px){
+  .cf-row{grid-template-columns:1fr}
+  .contact-form{padding:24px 20px}
+  .cf-submit{justify-self:stretch;text-align:center}
   .nav{position:fixed;inset:72px 0 auto 0;background:#fff;flex-direction:column;align-items:stretch;
     gap:0;padding:8px 22px 22px;border-bottom:1px solid var(--line);box-shadow:var(--shadow);
     transform:translateY(-130%);visibility:hidden;transition:transform .28s ease,visibility 0s .28s}

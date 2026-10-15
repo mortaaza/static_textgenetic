@@ -364,15 +364,57 @@
 
   <!-- Contact / CTA -->
   <section class="section cta" id="contact">
-    <div class="container cta__inner">
-      <h2 class="section__title center light">Let's build something intelligent.</h2>
-      <p class="section__lead center light wrap">
-        Whether you're a government partner, an enterprise, or exploring a pilot, our team would love to hear from you.
-      </p>
-      <div class="cta__actions">
-        <a class="btn btn--white" href="mailto:info@textgenetic.com">info@textgenetic.com</a>
-        <a class="btn btn--ghost-light" href="#projects">See our projects</a>
+    <div class="container cta__grid">
+      <div class="cta__copy">
+        <h2 class="section__title light">Let's build something intelligent.</h2>
+        <p class="section__lead light">
+          Whether you're a government partner, an enterprise, or exploring a pilot, our team would love to hear from you.
+        </p>
+        <p class="cta__direct">Prefer email? <a href="mailto:info@textgenetic.com">info@textgenetic.com</a></p>
       </div>
+
+      <!-- Contact form.
+           data-endpoint = form service URL (e.g. https://api.web3forms.com/submit or https://formspree.io/f/XXXX).
+           Leave empty and the form falls back to opening the visitor's email app. -->
+      <form class="contact-form" id="contactForm" data-endpoint="" data-mailto="info@textgenetic.com" novalidate>
+        <input type="hidden" name="access_key" value="" />
+        <input type="hidden" name="subject" value="New enquiry from textgenetic.com" />
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="cf-row">
+          <label class="cf-field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required maxlength="120" />
+          </label>
+          <label class="cf-field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required maxlength="160" />
+          </label>
+        </div>
+        <div class="cf-row">
+          <label class="cf-field">
+            <span>Organization <em>(optional)</em></span>
+            <input type="text" name="organization" autocomplete="organization" maxlength="160" />
+          </label>
+          <label class="cf-field">
+            <span>Topic</span>
+            <select name="topic">
+              <option>Partnership or pilot</option>
+              <option>Research collaboration</option>
+              <option>Government / public sector</option>
+              <option>Careers</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label class="cf-field">
+          <span>Message</span>
+          <textarea name="message" rows="5" required maxlength="4000"></textarea>
+        </label>
+
+        <button class="btn btn--primary cf-submit" type="submit">Send message</button>
+        <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
