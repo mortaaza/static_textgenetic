@@ -1,46 +1,94 @@
 // TextGenetic AI — lightweight interactions (no dependencies)
 (function () {
   document.documentElement.classList.add('js');
+
   var toggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');
+  var header = document.querySelector('.site-header');
 
   // Mobile nav
+  var closeNav = function () {
+    nav.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
   toggle.addEventListener('click', function () {
     var open = nav.classList.toggle('open');
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeNav); });
 
-  // Close mobile nav after clicking a link
-  nav.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      nav.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+  // In-page navigation. An anchor to a sticky header does nothing on iOS Safari, and with
+  // mandatory scroll-snap on, browsers may yank a programmatic scroll back to the previously
+  // snapped panel — so pause snapping, scroll, and restore it a beat after the scroll settles.
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var restoreTimer = null;
+  var scheduleRestore = function (ms) {
+    clearTimeout(restoreTimer);
+    restoreTimer = setTimeout(function () { root.style.scrollSnapType = ''; }, ms);
+  };
+  window.addEventListener('scrollend', function () { if (root.style.scrollSnapType === 'none') scheduleRestore(300); });
+  var animateTo = function (target) {
+    root.style.scrollSnapType = 'none';
+    scheduleRestore(1800);                      // fallback for browsers without scrollend
+    window.scrollTo({ top: target, behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
+  var goTo = function (id) {
+    if (!id || id === 'top') { animateTo(0); return; }
+    var el = document.getElementById(id);
+    if (el) animateTo(el.offsetTop - header.offsetHeight);
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"], button[data-top]');
+    if (!a) return;
+    e.preventDefault();
+    closeNav();
+    var id = a.hasAttribute('data-top') ? 'top' : a.getAttribute('href').slice(1);
+    goTo(id);
+    if (history.replaceState) history.replaceState(null, '', id === 'top' ? location.pathname : '#' + id);
   });
+  var toTop = document.getElementById('toTop');
 
-  // Back-to-top button + compact header on scroll
-  var toTop = document.querySelector('.to-top');
-  var header = document.querySelector('.site-header');
+  // Compact header + back-to-top visibility
   var onScroll = function () {
-    toTop.classList.toggle('show', window.scrollY > 480);
-    header.classList.toggle('scrolled', window.scrollY > 12);
+    var y = window.scrollY;
+    header.classList.toggle('scrolled', y > 12);
+    toTop.classList.toggle('show', y > window.innerHeight * 0.8);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Reveal sections/cards as they scroll into view
-  var revealEls = document.querySelectorAll('[data-reveal]');
+  // Active section in nav (scrollspy) + hide the mobile sticky CTA on the contact panel.
+  // Pick the panel whose top is nearest the header line — deterministic on every scroll.
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]:not(.nav__cta)'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel[id]'));
+  var spyTick = false;
+  var spy = function () {
+    spyTick = false;
+    var line = window.scrollY + header.offsetHeight + 8;
+    var current = panels[0];
+    panels.forEach(function (p) { if (p.offsetTop <= line) current = p; });
+    links.forEach(function (a) { a.classList.toggle('active', byId[current.id] === a); });
+    document.body.classList.toggle('on-contact', current.id === 'contact');
+    document.body.classList.toggle('on-home', current.id === 'home');
+  };
+  window.addEventListener('scroll', function () { if (!spyTick) { spyTick = true; requestAnimationFrame(spy); } }, { passive: true });
+  spy();
+
   if ('IntersectionObserver' in window) {
+    // Reveal cards as they scroll into view
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    revealEls.forEach(function (el) { io.observe(el); });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
   } else {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
   }
 
   // Contact form: posts to a form service if data-endpoint is set,

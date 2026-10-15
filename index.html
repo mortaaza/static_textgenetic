@@ -19,589 +19,264 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=3" />
 </head>
 <body>
+  <span id="top" class="top-anchor" aria-hidden="true"></span>
 
-  <!-- Icon sprite (stroke icons, inherit currentColor) -->
+  <!-- Icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-      <symbol id="i-workflow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><path d="M10 6.5h4a3 3 0 0 1 3 3V14M6.5 10v4a3 3 0 0 0 3 3H14"/>
-      </symbol>
-      <symbol id="i-dna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M7 3c0 6 10 6 10 12M7 21c0-6 10-6 10-12M7 3c0 6 10 6 10 12"/><path d="M7 21c0-6 10-6 10-12"/><path d="M8.5 7.5h7M8.5 16.5h7M7 12h10"/>
-      </symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 20h18"/><path d="M6 16V11M11 16V6M16 16v-3M21 16V8"/>
-      </symbol>
-      <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>
-      </symbol>
-      <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/>
-      </symbol>
-      <symbol id="i-brain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9.5 3A3.5 3.5 0 0 0 6 6.5a3.5 3.5 0 0 0-2 5.5 3.5 3.5 0 0 0 2 6 3.5 3.5 0 0 0 6 .5V5.5A2.5 2.5 0 0 0 9.5 3z"/><path d="M14.5 3A3.5 3.5 0 0 1 18 6.5a3.5 3.5 0 0 1 2 5.5 3.5 3.5 0 0 1-2 6 3.5 3.5 0 0 1-6 .5V5.5A2.5 2.5 0 0 1 14.5 3z"/>
-      </symbol>
-      <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><path d="M7 15h10"/>
-      </symbol>
-      <symbol id="i-gov" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 10l9-6 9 6"/><path d="M5 10v9M9.5 10v9M14.5 10v9M19 10v9"/><path d="M3 19h18"/>
-      </symbol>
-      <symbol id="i-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M2 9l4-3 5 3 2-1 6 4-4 4M12 8l-4 3 2.5 2.5a1.5 1.5 0 0 0 2 0L14 12"/><path d="M14 12l2 2a1.5 1.5 0 0 1-2 2l-1-1a1.5 1.5 0 0 1-2 2l-1-1a1.5 1.5 0 0 1-2 2L6 16l-4-3"/>
-      </symbol>
-      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>
-      </symbol>
-      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12.5l4.5 4.5L19 7.5"/>
-      </symbol>
-      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>
-      </symbol>
-      <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 15l-2 6 6-2"/><path d="M9 15l6-6c2.5-2.5 3.5-5.5 3.5-8.5-3 0-6 1-8.5 3.5L4 10l5 5z"/><circle cx="14.5" cy="9.5" r="1.3"/>
-      </symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3l8 3v6c0 4.5-3.4 7.8-8 9-4.6-1.2-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>
-      </symbol>
-      <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 20h16"/><path d="M8 20V9M12 20V4M16 20v-8"/><path d="M6 9h4M10 4h4M14 12h4"/>
-      </symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/>
-      </symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/>
-      </symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
-      </symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M13 6l6 6-6 6"/>
-      </symbol>
+      <symbol id="i-workflow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><path d="M10 6.5h4a3 3 0 0 1 3 3V14M6.5 10v4a3 3 0 0 0 3 3H14"/></symbol>
+      <symbol id="i-dna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c0 6 10 6 10 12M7 21c0-6 10-6 10-12"/><path d="M8.5 7.5h7M8.5 16.5h7M7 12h10"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 16V11M11 16V6M16 16v-3M21 16V8"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l-2 6 6-2"/><path d="M9 15l6-6c2.5-2.5 3.5-5.5 3.5-8.5-3 0-6 1-8.5 3.5L4 10l5 5z"/><circle cx="14.5" cy="9.5" r="1.3"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 7.8-8 9-4.6-1.2-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M8 20V9M12 20V4M16 20v-8"/><path d="M6 9h4M10 4h4M14 12h4"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+      <symbol id="i-maple" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 3.3 2.4-1-.5 3.1 2.9-.2-1.2 2.5 3.1 1.3-2.3 1.8 1.6 2.3-3.3-.6.3 3.4-3.3-1.8-.4 4.4h-1.8l-.4-4.4-3.3 1.8.3-3.4-3.3.6 1.6-2.3-2.3-1.8 3.1-1.3-1.2-2.5 2.9.2-.5-3.1 2.4 1z"/></symbol>
     </defs>
   </svg>
 
-  <!-- Announcement bar -->
-  <div class="announce">
-    <div class="container announce__inner">
-      <span>🇨🇦 Selected for the Government of Canada's <strong>Innovative Solutions Canada — Testing Stream</strong></span>
-      <a href="#isc">Learn more →</a>
-    </div>
-  </div>
-
   <!-- Header -->
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container header__inner">
-      <a class="brand" href="#top" aria-label="TextGenetic AI home">
+      <a class="brand" href="#top" aria-label="TextGenetic AI home" data-top>
         <img class="brand__mark" src="assets/logo-mark.png" alt="" width="29" height="40" />
         <img class="brand__wordmark" src="assets/logo-wordmark.png" alt="TextGenetic" width="198" height="28" />
       </a>
-
       <nav class="nav" id="nav">
         <a href="#focus">Focus</a>
+        <a href="#isc">Credentials</a>
         <a href="#projects">Projects</a>
-        <a href="#isc">ISC Testing Stream</a>
-        <a href="#company">Company</a>
+        <a href="#why">Why us</a>
         <a href="#process">How we work</a>
         <a class="nav__cta" href="#contact">Talk to us</a>
       </nav>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero__bg" aria-hidden="true">
-      <span class="orb orb--1"></span><span class="orb orb--2"></span><span class="orb orb--3"></span>
-    </div>
-    <div class="container hero__inner">
-      <div class="hero__copy">
-        <p class="hero__eyebrow">Health AI · Neuroanalytics · Workflow Automation</p>
-        <h1 class="hero__title">Brain-health AI,<br/><span class="hl">engineered with rigor.</span></h1>
-        <p class="hero__lead">
-          TextGenetic AI automates the workflows behind specialized care and turns clinical
-          signals into neural biomarkers and neurodegenerative-disease analytics — science-driven
-          software with a proven record of moving research into real-world systems.
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--primary btn--lg" href="#contact">Talk to us <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--ghost-light btn--lg" href="#projects">See our work</a>
+  <main class="snap">
+
+    <!-- 1 · Hero -->
+    <section class="panel hero" id="home">
+      <div class="hero__bg" aria-hidden="true"><span class="orb orb--1"></span><span class="orb orb--2"></span></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="kicker light">Health AI · Neuroanalytics · Automation</p>
+          <h1 class="hero__title">Brain-health AI,<br/><span class="hl">engineered with rigor.</span></h1>
+          <p class="hero__lead">We turn clinical signals into neural biomarkers and automate the workflows behind specialized care — proven in the field, with clinicians in the loop.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">Talk to us <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost-light" href="#projects">See our work</a>
+          </div>
         </div>
-        <ul class="hero__trust" aria-label="Credentials">
-          <li><svg><use href="#i-check"/></svg> Government of Canada ISC — Testing Stream</li>
-          <li><svg><use href="#i-check"/></svg> City of Kitchener pilot partner</li>
-          <li><svg><use href="#i-check"/></svg> Clinician-in-the-loop, privacy-first AI</li>
-        </ul>
-      </div>
-
-      <div class="hero__visual" aria-hidden="true">
-        <div class="helix">
-          <span class="helix__glow"></span>
-          <img src="assets/logo-mark.png" alt="" width="256" height="360" />
+        <div class="hero__visual" aria-hidden="true">
+          <div class="helix"><span class="helix__glow"></span><img src="assets/logo-mark.png" alt="" width="256" height="360" /></div>
+          <div class="chip chip--1"><span class="chip__dot chip__dot--cyan"></span><div><strong>Gait &amp; balance</strong><small>signal captured</small></div></div>
+          <div class="chip chip--2"><span class="chip__dot chip__dot--violet"></span><div><strong>Cognition</strong><small>trend flagged</small></div></div>
+          <div class="chip chip--3"><span class="chip__dot chip__dot--green"></span><div><strong>Clinician reviewed</strong><small>human-in-the-loop</small></div></div>
         </div>
-        <div class="chip chip--1"><span class="chip__dot chip__dot--cyan"></span><div><strong>Gait &amp; balance</strong><small>longitudinal signal captured</small></div></div>
-        <div class="chip chip--2"><span class="chip__dot chip__dot--violet"></span><div><strong>Cognition score</strong><small>trend flagged for review</small></div></div>
-        <div class="chip chip--3"><span class="chip__dot chip__dot--blue"></span><div><strong>Reassessment due</strong><small>12 patients · auto-tracked</small></div></div>
-        <div class="chip chip--4"><span class="chip__dot chip__dot--green"></span><div><strong>Clinician reviewed</strong><small>human-in-the-loop</small></div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- Proof strip -->
-  <section class="proof" aria-label="Highlights">
-    <div class="container proof__inner" data-reveal>
-      <div class="proof__item"><strong>ISC</strong><span>Selected for Canada's Innovative Solutions Testing Stream</span></div>
-      <div class="proof__item"><strong>$100K</strong><span>Pitch Kitchener pilot — 1 of 3 chosen from 10 finalists</span></div>
-      <div class="proof__item"><strong>TRL 7–9</strong><span>Late-stage, deployable technology validated in the field</span></div>
-      <div class="proof__item"><strong>Kitchener, ON</strong><span>Built in the heart of Canada's technology corridor</span></div>
-    </div>
-  </section>
-
-  <!-- Focus: Brain Health & Neuroanalytics -->
-  <section class="section focus" id="focus">
-    <div class="container">
-      <div data-reveal>
-        <p class="kicker center">Our focus</p>
-        <h2 class="section__title center">Brain health, <span class="hl">made measurable.</span></h2>
-        <p class="section__lead center wrap">
-          TextGenetic AI is centered on three connected fronts — automating the workflows behind
-          specialized care, turning clinical signals into neural biomarkers, and analyzing
-          neurodegenerative disease over time.
-        </p>
+      <!-- Partner / credential logo strip -->
+      <div class="logos">
+        <div class="container logos__inner">
+          <span class="logos__label">Selected by &amp; piloted with</span>
+          <ul class="logos__list">
+            <li class="logo logo--canada" title="Government of Canada · Innovative Solutions Canada"><svg><use href="#i-maple"/></svg><span><strong>Government of Canada</strong><small>Innovative Solutions Canada</small></span></li>
+            <li class="logo"><img src="assets/partners/city-of-kitchener.png" alt="City of Kitchener" height="44" /></li>
+            <li class="logo"><img src="assets/partners/communitech.svg" alt="Communitech" height="30" /></li>
+            <li class="logo logo--axion" title="Axion Fleet — our product"><img src="assets/partners/axion-fleet.png" alt="" width="34" height="34" /><span><strong>Axion Fleet</strong><small>our product</small></span></li>
+          </ul>
+        </div>
       </div>
-      <div class="focus-grid">
-        <article class="focus-card" data-reveal>
-          <div class="icon"><svg><use href="#i-workflow"/></svg></div>
-          <h3>Health Workflow Automation</h3>
-          <p>
-            We replace manual lists, paper, and memory with one coordinated, privacy-conscious view —
-            care coordination, reassessment and program tracking, follow-up ownership, and
-            clinician-reviewed documentation that gives staff time back.
-          </p>
-          <div class="tags"><span>Care coordination</span><span>Reassessment tracking</span><span>Documentation support</span></div>
-        </article>
-        <article class="focus-card focus-card--feature" data-reveal>
-          <div class="icon icon--light"><svg><use href="#i-dna"/></svg></div>
-          <h3>Neural Biomarkers</h3>
-          <p>
-            Structured, longitudinal capture of gait, balance, freezing-of-gait, cognition, speech,
-            and medication-response signals — the raw material for digital biomarker discovery and
-            clinical pattern mining.
-          </p>
-          <div class="tags"><span>Digital biomarkers</span><span>Gait &amp; balance</span><span>Cognition</span><span>Pattern mining</span></div>
-        </article>
-        <article class="focus-card" data-reveal>
-          <div class="icon"><svg><use href="#i-chart"/></svg></div>
-          <h3>Neurodegenerative Disease Analytics</h3>
-          <p>
-            Longitudinal analytics across Parkinson's, Alzheimer's, and cognitive decline — outcome
-            tracking, progression signals, and de-identified, research-ready data foundations built
-            for responsible, privacy-preserving AI.
-          </p>
-          <div class="tags"><span>Parkinson's</span><span>Alzheimer's</span><span>Outcome tracking</span><span>Research-ready</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ISC Testing Stream — flagship credential -->
-  <section class="section isc" id="isc">
-    <div class="container">
-      <div class="isc__grid">
-        <div class="isc__left" data-reveal>
-          <span class="isc__flag">Government of Canada · Innovative Solutions Canada</span>
-          <h2 class="isc__title">Selected for the<br/><span>ISC&nbsp;—&nbsp;Testing&nbsp;Stream</span></h2>
-          <p class="isc__lead">
-            TextGenetic AI has been selected for the Government of Canada's
-            <strong>Innovative Solutions Canada (ISC) — Testing Stream</strong>, a national R&amp;D
-            program that procures and tests pre-commercial Canadian innovations in real-world
-            operational environments.
-          </p>
-          <p class="isc__body">
-            The Testing Stream evaluates late-stage innovations (Technology Readiness Levels 7–9)
-            through federal R&amp;D contracts — providing rigorous, third-party validation that a
-            solution is proven and ready for market, with a direct Pathway to Commercialization.
-          </p>
+    <!-- 2 · Focus -->
+    <section class="panel section" id="focus">
+      <div class="container">
+        <div class="head" data-reveal>
+          <p class="kicker">What we do</p>
+          <h2 class="section__title">Brain health, <span class="hl">made measurable.</span></h2>
+        </div>
+        <div class="focus-grid">
+          <article class="focus-card" data-reveal>
+            <div class="icon"><svg><use href="#i-workflow"/></svg></div>
+            <h3>Workflow automation</h3>
+            <p>One coordinated view of patients, programs and reassessments — so staff stop managing lists and start seeing patients.</p>
+            <div class="tags"><span>Care coordination</span><span>Reassessment tracking</span></div>
+          </article>
+          <article class="focus-card focus-card--feature" data-reveal>
+            <div class="icon icon--light"><svg><use href="#i-dna"/></svg></div>
+            <h3>Neural biomarkers</h3>
+            <p>Gait, balance, cognition, speech and medication response, captured over time — the raw material for digital biomarkers.</p>
+            <div class="tags"><span>Gait &amp; balance</span><span>Cognition</span><span>Speech</span></div>
+          </article>
+          <article class="focus-card" data-reveal>
+            <div class="icon"><svg><use href="#i-chart"/></svg></div>
+            <h3>Disease analytics</h3>
+            <p>Progression and outcome analytics across Parkinson's, Alzheimer's and cognitive decline on research-ready, de-identified data.</p>
+            <div class="tags"><span>Parkinson's</span><span>Alzheimer's</span><span>Privacy-first</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Credentials (ISC + numbers) -->
+    <section class="panel section isc" id="isc">
+      <div class="container isc__grid">
+        <div data-reveal>
+          <p class="kicker light">Credentials</p>
+          <h2 class="section__title light">Selected for Canada's<br/><span class="hl-cyan">ISC Testing Stream.</span></h2>
+          <p class="section__lead light">The Government of Canada's Innovative Solutions Canada program buys and tests late-stage Canadian innovations in real operations — independent proof that our AI works outside the lab.</p>
           <a class="btn btn--white" href="https://ised-isde.canada.ca/site/innovative-solutions-canada/en/testing-stream" target="_blank" rel="noopener">About the program →</a>
         </div>
-        <ul class="isc__points" data-reveal>
-          <li><span><svg><use href="#i-check"/></svg></span><div><strong>Federally validated</strong>Independent, government-backed proof our AI performs in the field.</div></li>
-          <li><span><svg><use href="#i-check"/></svg></span><div><strong>Real-world testing</strong>Evaluated in live operational settings, not just the lab.</div></li>
-          <li><span><svg><use href="#i-check"/></svg></span><div><strong>Late-stage maturity</strong>Recognized at TRL 7–9 — proven, deployable technology.</div></li>
-          <li><span><svg><use href="#i-check"/></svg></span><div><strong>Pathway to Commercialization</strong>Positioned for federal adoption following successful testing.</div></li>
+        <ul class="stats" data-reveal>
+          <li><strong>TRL 7–9</strong><span>Late-stage, deployable technology</span></li>
+          <li><strong>$100K</strong><span>City of Kitchener pilot — 1 of 3 chosen from 10 finalists</span></li>
+          <li><strong>Federal</strong><span>Real-world testing under government contract</span></li>
+          <li><strong>Kitchener, ON</strong><span>Canada's technology corridor</span></li>
         </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Company / mission -->
-  <section class="section" id="company">
-    <div class="container grid-2">
-      <div data-reveal>
-        <p class="kicker">Who we are</p>
-        <h2 class="section__title">AI is at the heart of <span class="hl">everything we build.</span></h2>
-        <p class="section__lead">
-          TextGenetic AI Inc. is a purpose-driven software company founded by engineers and
-          data scientists with a track record of published research and granted patents. We
-          translate state-of-the-art AI into dependable products that solve hard, practical
-          problems.
-        </p>
-        <p class="muted">
-          From our base in Kitchener, Ontario — at the centre of Canada's technology corridor —
-          we partner with government and industry to turn data into foresight, automation, and
-          measurable results.
-        </p>
+    <!-- 4 · Projects -->
+    <section class="panel section section--tint" id="projects">
+      <div class="container">
+        <div class="head" data-reveal>
+          <p class="kicker">Our work</p>
+          <h2 class="section__title">Proven in <span class="hl">real operations.</span></h2>
+        </div>
+        <div class="projects">
+          <article class="proj" data-reveal>
+            <span class="badge">Flagship · Healthcare</span>
+            <h3>AI care coordination &amp; neuroanalytics platform</h3>
+            <p>For a multi-site neurodegenerative-care provider: one privacy-conscious view of patient, program and assessment data, plus the foundation for brain-health biomarkers.</p>
+            <details class="more">
+              <summary>What we built</summary>
+              <ul>
+                <li>Central care registry with automated reassessment and follow-up tracking</li>
+                <li>Longitudinal capture of gait, balance, cognition and medication-response signals</li>
+                <li>AI-assisted documentation with clinician review — never autonomous decisions</li>
+                <li>De-identified, research-ready data foundations</li>
+              </ul>
+              <p class="note">Client details withheld for confidentiality.</p>
+            </details>
+          </article>
+          <article class="proj" data-reveal>
+            <span class="badge">Municipal · 2025</span>
+            <h3>City of Kitchener — AI fleet analytics pilot</h3>
+            <p>Chosen as 1 of 3 companies from 10 finalists at Communitech's Fast Track Cities to win a $100,000 Pitch Kitchener pilot: predictive maintenance for the city's fleet.</p>
+            <details class="more">
+              <summary>Results &amp; coverage</summary>
+              <ul>
+                <li>Flags maintenance issues before they become breakdowns</li>
+                <li>Cuts vehicle downtime and extends asset life</li>
+                <li>Now productized as <a href="https://axionfleetai.com" target="_blank" rel="noopener">Axion Fleet</a></li>
+              </ul>
+              <p class="note"><a href="https://www.kitchener.ca/news/posts/modernizing-municipal-fleet-management-with-ai/" target="_blank" rel="noopener">City announcement →</a> &nbsp; <a href="https://communitech.ca/technews/three-waterloo-region-tech-companies-selected-to-pilot-solutions-with-city-of-kitchener.html" target="_blank" rel="noopener">Communitech feature →</a></p>
+            </details>
+          </article>
+        </div>
       </div>
-      <div class="company-card" data-reveal>
-        <div class="company-card__dot"></div>
-        <blockquote>
-          “We blend scientific rigor with engineering discipline to ship AI that people — and
-          governments — can actually rely on.”
-        </blockquote>
-        <p class="company-card__by">— The TextGenetic AI team</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects -->
-  <section class="section section--tint" id="projects">
-    <div class="container">
-      <div data-reveal>
-        <p class="kicker center">Our work</p>
-        <h2 class="section__title center">Projects &amp; <span class="hl">partnerships</span></h2>
-        <p class="section__lead center wrap">
-          We prove our technology where it matters most — in real operations, alongside public-sector,
-          healthcare, and industry partners.
-        </p>
+    <!-- 5 · Why us -->
+    <section class="panel section section--dark" id="why">
+      <div class="container">
+        <div class="head" data-reveal>
+          <p class="kicker light">Why TextGenetic</p>
+          <h2 class="section__title light">Science you can ship.</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-item" data-reveal><span class="why-num">01</span><h3>Research-grade team</h3><p>Engineers and scientists with PhDs, granted patents and peer-reviewed publications.</p></div>
+          <div class="why-item" data-reveal><span class="why-num">02</span><h3>Government-validated</h3><p>Selected for Canada's ISC Testing Stream; trusted to pilot with the City of Kitchener.</p></div>
+          <div class="why-item" data-reveal><span class="why-num">03</span><h3>Production-first</h3><p>Predictive analytics, real-time pipelines and intelligent systems that hold up outside the lab.</p></div>
+        </div>
+        <p class="quote" data-reveal>“We blend scientific rigor with engineering discipline to ship AI that people — and governments — can actually rely on.”</p>
       </div>
+    </section>
 
-      <!-- Flagship project: Brain health / neuroanalytics (anonymized) -->
-      <article class="project" data-reveal>
-        <div class="project__body">
-          <span class="project__badge">Flagship · Healthcare · Brain Health &amp; Neuroanalytics</span>
-          <h3 class="project__name">AI Care Coordination &amp; Neuroanalytics Platform</h3>
-          <p>
-            For a multi-site specialized neurodegenerative-care provider, TextGenetic AI designed a
-            two-part AI platform spanning Parkinson's, Alzheimer's, and cognitive-decline care — uniting
-            fragmented patient, program, and assessment data into one coordinated, privacy-conscious
-            view, and laying the foundation for advanced brain-health analytics.
-          </p>
-          <ul class="project__features">
-            <li><strong>Health workflow automation</strong> — a central care registry with automated reassessment tracking, program &amp; milestone monitoring, and clear follow-up ownership across sites</li>
-            <li><strong>Neural biomarker foundation</strong> — structured longitudinal capture of gait, balance, freezing-of-gait, cognition, and medication-response signals for clinical pattern mining and biomarker-candidate exploration</li>
-            <li><strong>Clinician-supervised clinical intelligence</strong> — AI-assisted assessment and documentation support with human-in-the-loop review; never autonomous clinical decisions</li>
-            <li><strong>Research-ready &amp; responsible by design</strong> — de-identified, privacy-preserving data foundations built with data governance and clinician oversight at the core</li>
+    <!-- 6 · How we work -->
+    <section class="panel section" id="process">
+      <div class="container">
+        <div class="head" data-reveal>
+          <p class="kicker">How we work</p>
+          <h2 class="section__title">From first call to <span class="hl">deployed system.</span></h2>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal><div class="step__num">1</div><div class="icon"><svg><use href="#i-search"/></svg></div><h3>Discover</h3><p>A short session to map your workflow, data and the outcome that matters.</p></li>
+          <li class="step" data-reveal><div class="step__num">2</div><div class="icon"><svg><use href="#i-rocket"/></svg></div><h3>Pilot</h3><p>A scoped pilot on your real data — weeks, not quarters.</p></li>
+          <li class="step" data-reveal><div class="step__num">3</div><div class="icon"><svg><use href="#i-shield"/></svg></div><h3>Validate</h3><p>Measured results, privacy and governance review.</p></li>
+          <li class="step" data-reveal><div class="step__num">4</div><div class="icon"><svg><use href="#i-scale"/></svg></div><h3>Scale</h3><p>Roll out across sites as a production system we support with you.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7 · Contact + footer -->
+    <section class="panel cta" id="contact">
+      <div class="container cta__grid">
+        <div class="cta__copy" data-reveal>
+          <p class="kicker light">Get in touch</p>
+          <h2 class="section__title light">Let's build something intelligent.</h2>
+          <ul class="cta__trust">
+            <li><svg><use href="#i-clock"/></svg><span>Reply within <strong>2 business days</strong></span></li>
+            <li><svg><use href="#i-shield"/></svg><span>Confidential — NDA on request</span></li>
+            <li><svg><use href="#i-pin"/></svg><span>Kitchener, Ontario, Canada</span></li>
+            <li><svg><use href="#i-mail"/></svg><a href="mailto:info@textgenetic.com">info@textgenetic.com</a></li>
           </ul>
-          <p class="project__note">Client and program details withheld for confidentiality.</p>
         </div>
-        <aside class="project__side">
-          <div class="stat"><strong>Brain health</strong><span>neurodegenerative care</span></div>
-          <div class="stat"><strong>Neural biomarkers</strong><span>gait · balance · cognition</span></div>
-          <div class="stat"><strong>Privacy-first</strong><span>research-ready data</span></div>
-        </aside>
-      </article>
-
-      <!-- Project: City of Kitchener (commercialization track record) -->
-      <article class="project project--alt" data-reveal>
-        <aside class="project__side">
-          <div class="stat"><strong>$100K</strong><span>pilot funding</span></div>
-          <div class="stat"><strong>3 of 10</strong><span>finalists selected</span></div>
-          <div class="stat"><strong>Real-time</strong><span>predictive analytics</span></div>
-        </aside>
-        <div class="project__body">
-          <span class="project__badge">Municipal · 2025</span>
-          <h3 class="project__name">City of Kitchener — AI Fleet Analytics Pilot</h3>
-          <p>
-            Proof we translate research into the field: TextGenetic AI was selected as one of three
-            Waterloo Region companies — from ten finalists at the Communitech Fast Track Cities
-            showcase — to win a <strong>$100,000 Pitch Kitchener pilot</strong>, applying AI-driven,
-            real-time predictive analytics to city operations.
-          </p>
-          <ul class="project__features">
-            <li>Flags potential maintenance issues <strong>before</strong> they become costly breakdowns</li>
-            <li>Reduces vehicle downtime and extends the life of city assets</li>
-            <li>Lowers overall operating costs and advances environmental goals</li>
-          </ul>
-          <div class="project__links">
-            <a href="https://www.kitchener.ca/news/posts/modernizing-municipal-fleet-management-with-ai/" target="_blank" rel="noopener">City of Kitchener announcement →</a>
-            <a href="https://communitech.ca/technews/three-waterloo-region-tech-companies-selected-to-pilot-solutions-with-city-of-kitchener.html" target="_blank" rel="noopener">Communitech feature →</a>
+        <!-- Contact form (Web3Forms). data-endpoint empty = fall back to visitor's email app. -->
+        <form class="contact-form" id="contactForm" data-endpoint="https://api.web3forms.com/submit" data-mailto="info@textgenetic.com" novalidate data-reveal>
+          <input type="hidden" name="access_key" value="58376b0a-796f-454c-b88d-1f449cd150d9" />
+          <input type="hidden" name="subject" value="New enquiry from textgenetic.com" />
+          <input type="hidden" name="from_name" value="textgenetic.com contact form" />
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="cf-row">
+            <label class="cf-field"><span>Name</span><input type="text" name="name" autocomplete="name" required maxlength="120" /></label>
+            <label class="cf-field"><span>Email</span><input type="email" name="email" autocomplete="email" required maxlength="160" /></label>
           </div>
-        </div>
-      </article>
-
-      <!-- Other projects -->
-      <div class="cards cards--proj">
-        <article class="card" data-reveal>
-          <div class="icon"><svg><use href="#i-gov"/></svg></div>
-          <h3>Federal Testing Stream Engagement</h3>
-          <p>Testing our predictive-AI platform in a real-world federal operational environment under Innovative Solutions Canada.</p>
-        </article>
-        <article class="card" data-reveal>
-          <div class="icon"><svg><use href="#i-handshake"/></svg></div>
-          <h3>Industry Partnerships</h3>
-          <p>Applying our analytics engine with private-sector partners across maintenance-intensive operations.</p>
-        </article>
-        <article class="card card--cta" data-reveal>
-          <div class="icon icon--light"><svg><use href="#i-plus"/></svg></div>
-          <h3>Your project here</h3>
-          <p>Have an operational challenge for AI to solve? Let's explore a pilot together.</p>
-          <a href="#contact">Start a conversation →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Capabilities -->
-  <section class="section" id="capabilities">
-    <div class="container">
-      <div data-reveal>
-        <p class="kicker center">What we do</p>
-        <h2 class="section__title center">Core <span class="hl">capabilities</span></h2>
-      </div>
-      <div class="cards">
-        <article class="card" data-reveal>
-          <div class="icon"><svg><use href="#i-trend"/></svg></div>
-          <h3>Predictive Analytics</h3>
-          <p>Models that forecast outcomes — failures, demand, risk — before they happen, so teams act early instead of reacting late.</p>
-        </article>
-        <article class="card" data-reveal>
-          <div class="icon"><svg><use href="#i-bolt"/></svg></div>
-          <h3>Real-Time Data Processing</h3>
-          <p>Streaming pipelines that ingest and reason over live signals at scale, delivering decisions in the moment they matter.</p>
-        </article>
-        <article class="card" data-reveal>
-          <div class="icon"><svg><use href="#i-brain"/></svg></div>
-          <h3>Intelligent Systems</h3>
-          <p>Applied machine learning and automation woven directly into operational workflows and the tools your people already use.</p>
-        </article>
-        <article class="card" data-reveal>
-          <div class="icon"><svg><use href="#i-flask"/></svg></div>
-          <h3>Neuroanalytics &amp; Research</h3>
-          <p>Brain-health analytics built on peer-reviewed methods and patents — digital biomarkers, longitudinal modelling, and privacy-preserving, research-ready datasets.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why us -->
-  <section class="section section--dark" id="why">
-    <div class="container">
-      <div data-reveal>
-        <p class="kicker center light">Why TextGenetic AI</p>
-        <h2 class="section__title center light">Science you can ship.</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-item" data-reveal>
-          <span class="why-num">01</span>
-          <h3>Research-grade team</h3>
-          <p>Engineers and scientists with PhDs, granted patents, and peer-reviewed publications — not hype, results.</p>
-        </div>
-        <div class="why-item" data-reveal>
-          <span class="why-num">02</span>
-          <h3>Government-validated</h3>
-          <p>Selected for Canada's ISC Testing Stream and trusted to pilot with the City of Kitchener.</p>
-        </div>
-        <div class="why-item" data-reveal>
-          <span class="why-num">03</span>
-          <h3>Production-first</h3>
-          <p>We optimize for fast, dependable, real-world software — models that hold up outside the lab.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Product (mentioned last) -->
-  <section class="section section--tint" id="product">
-    <div class="container">
-      <div data-reveal>
-        <p class="kicker center">Our product</p>
-        <h2 class="section__title center">Axion Fleet</h2>
-        <p class="section__lead center wrap">
-          Our pilot work is being productized as <strong>Axion Fleet</strong> — bringing TextGenetic AI's
-          predictive engine to municipal and commercial fleets everywhere.
-        </p>
-      </div>
-      <article class="product" data-reveal>
-        <div class="product__body">
-          <p class="product__tag">AI-Powered Municipal Fleet Management</p>
-          <p>
-            Axion Fleet gives fleet teams a single intelligent platform to manage every vehicle and
-            asset — from acquisition to retirement — powered by the same predictive AI proven in our
-            City of Kitchener pilot.
-          </p>
-          <ul class="product__features">
-            <li><strong>Asset Lifecycle</strong> — track every asset from purchase to disposal with full cost-of-ownership visibility.</li>
-            <li><strong>Work Orders</strong> — automated, prioritized maintenance work orders that keep crews focused and accountable.</li>
-            <li><strong>Predictive Maintenance</strong> — AI that forecasts component failures before they cause costly breakdowns.</li>
-          </ul>
-          <div class="product__actions">
-            <a class="btn btn--primary" href="https://axionfleetai.com" target="_blank" rel="noopener">Visit Axion Fleet →</a>
-            <a class="btn btn--ghost" href="#contact">Request a demo</a>
+          <div class="cf-row">
+            <label class="cf-field"><span>Organization <em>(optional)</em></span><input type="text" name="organization" autocomplete="organization" maxlength="160" /></label>
+            <label class="cf-field"><span>Topic</span>
+              <select name="topic"><option>Partnership or pilot</option><option>Research collaboration</option><option>Government / public sector</option><option>Careers</option><option>Other</option></select>
+            </label>
           </div>
-        </div>
-        <div class="product__visual" aria-hidden="true">
-          <div class="product__visual-inner">
-            <div class="pv-row"><span class="pv-dot pv-dot--ok"></span> Asset health: 96%</div>
-            <div class="pv-row"><span class="pv-dot pv-dot--warn"></span> Unit 214 — service due in 3 days</div>
-            <div class="pv-row"><span class="pv-dot pv-dot--ok"></span> 12 work orders auto-scheduled</div>
-            <div class="pv-bar"><span style="width:78%"></span></div>
-            <p class="pv-caption">Predicted downtime ↓ 31%</p>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- How we work (leads into contact) -->
-  <section class="section process" id="process">
-    <div class="container">
-      <div data-reveal>
-        <p class="kicker center">How we work</p>
-        <h2 class="section__title center">From first call to <span class="hl">deployed system.</span></h2>
-        <p class="section__lead center wrap">
-          A clear, low-risk path — start small, prove value in your real environment, then scale.
-        </p>
+          <label class="cf-field"><span>Message</span><textarea name="message" rows="4" required maxlength="4000"></textarea></label>
+          <button class="btn btn--primary cf-submit" type="submit">Send message <svg class="btn__icon"><use href="#i-arrow"/></svg></button>
+          <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
-      <ol class="steps">
-        <li class="step" data-reveal>
-          <div class="step__num">1</div>
-          <div class="icon"><svg><use href="#i-search"/></svg></div>
-          <h3>Discover</h3>
-          <p>A short working session to map your workflow, data, and the outcome that matters most.</p>
-        </li>
-        <li class="step" data-reveal>
-          <div class="step__num">2</div>
-          <div class="icon"><svg><use href="#i-rocket"/></svg></div>
-          <h3>Pilot</h3>
-          <p>A scoped pilot on your real data — weeks, not quarters — with clinicians or operators in the loop.</p>
-        </li>
-        <li class="step" data-reveal>
-          <div class="step__num">3</div>
-          <div class="icon"><svg><use href="#i-shield"/></svg></div>
-          <h3>Validate</h3>
-          <p>Measured results, privacy and governance review, and independent validation where it counts.</p>
-        </li>
-        <li class="step" data-reveal>
-          <div class="step__num">4</div>
-          <div class="icon"><svg><use href="#i-scale"/></svg></div>
-          <h3>Scale</h3>
-          <p>Roll out across sites and teams as a dependable production system we support with you.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Contact / CTA -->
-  <section class="section cta" id="contact">
-    <div class="container cta__grid">
-      <div class="cta__copy" data-reveal>
-        <p class="kicker light">Get in touch</p>
-        <h2 class="section__title light">Let's build something intelligent.</h2>
-        <p class="section__lead light">
-          Whether you're a government partner, a healthcare provider, an enterprise, or exploring a
-          pilot — tell us about the problem and we'll come back with a practical next step.
-        </p>
-        <ul class="cta__trust">
-          <li><svg><use href="#i-clock"/></svg><span>We reply within <strong>2 business days</strong></span></li>
-          <li><svg><use href="#i-shield"/></svg><span>Confidential — happy to sign an NDA first</span></li>
-          <li><svg><use href="#i-pin"/></svg><span>Kitchener, Ontario, Canada</span></li>
-          <li><svg><use href="#i-mail"/></svg><span>Prefer email? <a href="mailto:info@textgenetic.com">info@textgenetic.com</a></span></li>
-        </ul>
-      </div>
-
-      <!-- Contact form.
-           data-endpoint = form service URL (e.g. https://api.web3forms.com/submit or https://formspree.io/f/XXXX).
-           Leave empty and the form falls back to opening the visitor's email app. -->
-      <form class="contact-form" id="contactForm" data-endpoint="https://api.web3forms.com/submit" data-mailto="info@textgenetic.com" novalidate data-reveal>
-        <input type="hidden" name="access_key" value="58376b0a-796f-454c-b88d-1f449cd150d9" />
-        <input type="hidden" name="subject" value="New enquiry from textgenetic.com" />
-        <input type="hidden" name="from_name" value="textgenetic.com contact form" />
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-        <div class="cf-row">
-          <label class="cf-field">
-            <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required maxlength="120" />
-          </label>
-          <label class="cf-field">
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required maxlength="160" />
-          </label>
+      <footer class="footer">
+        <div class="container footer__inner">
+          <a class="brand" href="#top" aria-label="TextGenetic AI home" data-top>
+            <img class="brand__mark" src="assets/logo-mark.png" alt="" width="29" height="40" />
+            <img class="brand__wordmark" src="assets/logo-wordmark-light.png" alt="TextGenetic" width="198" height="28" />
+          </a>
+          <nav class="footer__nav">
+            <a href="#focus">Focus</a><a href="#isc">Credentials</a><a href="#projects">Projects</a><a href="#why">Why us</a>
+            <a href="https://axionfleetai.com" target="_blank" rel="noopener">Axion Fleet</a><a href="mailto:info@textgenetic.com">Email</a>
+          </nav>
+          <span class="footer__copy">© <span id="year">2026</span> TextGenetic AI Inc. · Pioneering Integrated AI</span>
         </div>
-        <div class="cf-row">
-          <label class="cf-field">
-            <span>Organization <em>(optional)</em></span>
-            <input type="text" name="organization" autocomplete="organization" maxlength="160" />
-          </label>
-          <label class="cf-field">
-            <span>Topic</span>
-            <select name="topic">
-              <option>Partnership or pilot</option>
-              <option>Research collaboration</option>
-              <option>Government / public sector</option>
-              <option>Careers</option>
-              <option>Other</option>
-            </select>
-          </label>
-        </div>
-        <label class="cf-field">
-          <span>Message</span>
-          <textarea name="message" rows="5" required maxlength="4000"></textarea>
-        </label>
+      </footer>
+    </section>
 
-        <button class="btn btn--primary cf-submit" type="submit">Send message <svg class="btn__icon"><use href="#i-arrow"/></svg></button>
-        <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <a class="brand" href="#top" aria-label="TextGenetic AI home">
-          <img class="brand__mark" src="assets/logo-mark.png" alt="" width="29" height="40" />
-          <img class="brand__wordmark" src="assets/logo-wordmark-light.png" alt="TextGenetic" width="198" height="28" />
-        </a>
-        <p class="muted">Pioneering Integrated AI.<br/>Kitchener, Ontario, Canada.</p>
-      </div>
-      <nav class="footer__nav">
-        <div>
-          <h4>Company</h4>
-          <a href="#company">About</a>
-          <a href="#why">Why us</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#process">How we work</a>
-        </div>
-        <div>
-          <h4>Work</h4>
-          <a href="#focus">Neuroanalytics</a>
-          <a href="#projects">Projects</a>
-          <a href="#isc">ISC Testing Stream</a>
-          <a href="https://axionfleetai.com" target="_blank" rel="noopener">Axion Fleet</a>
-        </div>
-        <div>
-          <h4>Connect</h4>
-          <a href="mailto:info@textgenetic.com">info@textgenetic.com</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-    <div class="container footer__bottom">
-      <span>© <span id="year">2026</span> TextGenetic AI Inc. All rights reserved.</span>
-      <span>Pioneering Integrated AI</span>
-    </div>
-  </footer>
+  <!-- Mobile sticky CTA -->
+  <a class="sticky-cta" href="#contact" id="stickyCta">Talk to us <svg><use href="#i-arrow"/></svg></a>
 
-  <a class="to-top" href="#top" aria-label="Back to top">↑</a>
-  <script src="js/main.js"></script>
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top" data-top><svg><use href="#i-up"/></svg></button>
+
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
