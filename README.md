@@ -10,7 +10,7 @@ textgenetic-website/
 ├── index.html          # the whole page (single-page sections)
 ├── css/styles.css      # all styling (brand colors at the top as CSS variables)
 ├── js/main.js          # mobile nav, back-to-top, footer year
-├── assets/favicon.svg  # browser tab icon / brand mark
+├── assets/            # logo-mark.png, logo-wordmark(-light).png, favicons
 └── README.md
 ```
 
@@ -23,7 +23,8 @@ python3 -m http.server 8080      # then visit http://localhost:8080
 
 ## Edit the content
 - **Text & sections:** all in `index.html` — clearly grouped by `<!-- comments -->`.
-- **Brand colors:** top of `css/styles.css`, under `:root` (`--navy`, `--blue`, `--cyan`, …).
+- **Brand colors:** top of `css/styles.css`, under `:root` — taken from the logo
+  (`--cyan` #14c8fd → `--blue` #0a5cff → `--violet` #7b2cf5, on `--navy` #0a1533; `--grad` is the full strand gradient).
 - **Contact email:** search `info@textgenetic.com` in `index.html` and replace as needed
   (currently used for the company; Axion Fleet links go to https://axionfleetai.com).
 - **Announcement bar:** first block in `index.html`.
