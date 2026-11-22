@@ -39,7 +39,7 @@ def head(title, description, path, jsonld):
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/styles.css?v=4" />
+  <link rel="stylesheet" href="/css/styles.css?v=5" />
   <style>html{{scroll-snap-type:none}}</style>
   <script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>
 </head>
@@ -50,7 +50,7 @@ def head(title, description, path, jsonld):
         <img class="brand__mark" src="/assets/logo-mark.png" alt="" width="29" height="40" />
         <img class="brand__wordmark" src="/assets/logo-wordmark.png" alt="TextGenetic" width="198" height="28" />
       </a>
-      <nav class="nav nav--inline"><a href="/neuroanalytics/">Neuroanalytics</a><a href="/predictive-maintenance-ai/">Case study</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a class="nav__cta" href="/#contact">Talk to us</a></nav>
+      <nav class="nav nav--inline"><a href="/long-term-care/">Long-term care</a><a href="/neuroanalytics/">Neuroanalytics</a><a href="/predictive-maintenance-ai/">Case study</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a class="nav__cta" href="/#contact">Talk to us</a></nav>
     </div>
   </header>
 """
@@ -59,7 +59,7 @@ def head(title, description, path, jsonld):
 def footer():
     return """  <footer class="page--footer"><div class="container footer__inner">
     <span class="footer__copy">© <span id="year">2026</span> TextGenetic AI Inc. · Kitchener, Ontario, Canada</span>
-    <nav class="footer__nav"><a href="/">Home</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
+    <nav class="footer__nav"><a href="/">Home</a><a href="/long-term-care/">Long-term care</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
   </div></footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
@@ -80,10 +80,10 @@ def crumbs(items):
     return '<ol class="crumbs">' + "".join(lis) + "</ol>", ld
 
 
-def cta_box():
-    return """<aside class="cta-box">
-      <strong>Working on something similar?</strong>
-      <p>Tell us about the problem and we'll come back with a practical next step — usually a scoped pilot on your real data.</p>
+def cta_box(title="Working on something similar?", text="Tell us about the problem and we'll come back with a practical next step — usually a scoped pilot on your real data."):
+    return f"""<aside class="cta-box">
+      <strong>{title}</strong>
+      <p>{text}</p>
       <a class="btn btn--primary" href="/#contact">Talk to us →</a>
     </aside>"""
 
@@ -118,7 +118,7 @@ for t in TOPICS:
     <h1>{t['h1']}</h1>
     <p class="lead">{t['lead']}</p>
     {t['body']}
-    {cta_box()}
+    {cta_box(*t['cta']) if t.get('cta') else cta_box()}
     {related(t.get('related', []))}
   </main>
 """

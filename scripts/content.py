@@ -67,6 +67,44 @@ TOPICS = [
         "related": ["care-coordination", "reassessment-tracking", "clinician-in-the-loop", "de-identification"],
     },
     {
+        "slug": "long-term-care",
+        "crumb": "Long-term care",
+        "kicker": "Long-term care · ChartDesk · In development",
+        "title": "ChartDesk: AI for paper records in long-term care — TextGenetic AI",
+        "description": "ChartDesk turns the paper side of a long-term care resident's chart (faxed labs, hospital reports, behaviour sheets) into a searchable, source-linked record for the nurse in charge, with nurses approving everything.",
+        "h1": "ChartDesk: the paper side of the chart, <em class=\"acc\">finally searchable</em>",
+        "lead": "In many Ontario long-term care homes, much of a resident's record still lives on paper. Lab results and hospital reports arrive by fax and go into binders; behaviour sheets are filled in by hand. ChartDesk is a scan-to-chart desk for the nurse in charge, built with the nurses and physicians who do this work every day.",
+        "body": """
+<h2>What we heard on the floor</h2>
+<p>We spent time on site in an Ontario long-term care home with nurses, office staff and the attending physician. The message was consistent: the information exists, but it is hard to find when it matters. As one team member put it, <em>"We're wasting so much time to look for things."</em> When a resident's condition changes, the nurse calling the physician does not always have the latest results and goals of care in hand.</p>
+
+<h2>What ChartDesk does</h2>
+<ul>
+  <li><strong>Capture &amp; file.</strong> Faxes and scans are read and matched to the right resident. A nurse confirms with one tap; nothing is filed on its own.</li>
+  <li><strong>Find.</strong> Search by exact words or in plain language. Every answer links to the original page, and if something is not in the record, ChartDesk says so instead of guessing.</li>
+  <li><strong>Due &amp; overdue.</strong> Follow-ups mentioned in documents, such as a repeat blood test, become a visible due list for each resident.</li>
+  <li><strong>Change in condition.</strong> Drafts an <a href="/glossary/sbar/">SBAR</a> for the on-call physician with <a href="/glossary/goals-of-care/">goals of care</a> shown first, to help avoid unnecessary hospital transfers.</li>
+  <li><strong>Behaviour trends.</strong> Handwritten behaviour observation sheets become trends the care team can actually see.</li>
+</ul>
+
+<h2>People stay in charge</h2>
+<p>ChartDesk organizes, finds and drafts. It does not make clinical decisions. Every draft is reviewed by a nurse or physician before it reaches the chart, in line with our <a href="/glossary/clinician-in-the-loop/">clinician-in-the-loop</a> principle.</p>
+
+<h2>Privacy by design</h2>
+<ul>
+  <li>The home remains the custodian of resident information; we act only as its agent under a written agreement.</li>
+  <li>No resident data is used until a privacy agreement and privacy impact assessment are in place.</li>
+  <li>Data is stored in Canada, encrypted and access-logged, and is never used to train AI models.</li>
+  <li>Research and development use realistic test records, not real resident data.</li>
+</ul>
+
+<h2>Where we are</h2>
+<p>ChartDesk is in research and prototyping, shaped by on-site discovery and a long-term care physician as our clinical lead. We are looking for Ontario homes interested in helping test it. The same discipline behind our <a href="/health-workflow-automation/">workflow automation</a> and <a href="/neuroanalytics/">neuroanalytics</a> work applies here: measured, reviewable and private.</p>
+""",
+        "cta": ("Run a long-term care home in Ontario?", "We'd like to learn how paper and faxes work in your home, and explore testing ChartDesk with your team. No resident data is involved until privacy agreements are in place."),
+        "related": ["sbar", "goals-of-care", "clinician-in-the-loop", "care-coordination"],
+    },
+    {
         "slug": "predictive-maintenance-ai",
         "crumb": "Case study: City of Kitchener",
         "kicker": "Case study · Municipal · 2025",
@@ -135,7 +173,7 @@ TOPICS = [
         "lead": "TextGenetic AI Inc. is a federally incorporated Canadian company based in Kitchener, Ontario, at the centre of the country's technology corridor. We were founded by engineers and data scientists with research backgrounds, and we build AI the way we'd want it built for our own families: measured, reviewable and private by design.",
         "body": """
 <h2>What we do</h2>
-<p>We work on two connected fronts. The first is <a href="/health-workflow-automation/">workflow automation for specialized care</a> — replacing lists, paper and memory with one coordinated view of patients, programs and reassessments. The second is <a href="/neuroanalytics/">neuroanalytics</a> — turning clinical signals into neural biomarkers and progression analytics for neurodegenerative disease.</p>
+<p>We work on two connected fronts. The first is <a href="/health-workflow-automation/">workflow automation for specialized care</a> — replacing lists, paper and memory with one coordinated view of patients, programs and reassessments. The second is <a href="/neuroanalytics/">neuroanalytics</a> — turning clinical signals into neural biomarkers and progression analytics for neurodegenerative disease. We are also building <a href="/long-term-care/">ChartDesk</a>, which makes the paper side of a long-term care resident's chart searchable for the nurse in charge.</p>
 
 <h2>How we got here</h2>
 <p>Our predictive engine was validated first where mistakes are expensive: a municipal fleet. The <a href="/predictive-maintenance-ai/">City of Kitchener pilot</a> ($100,000, Pitch Kitchener) proved the technology in live operations, and the Government of Canada selected it for the <a href="/isc-testing-stream/">ISC Testing Stream</a>. We then applied the same discipline to brain health.</p>
@@ -319,5 +357,27 @@ GLOSSARY = [
 """,
         "why": "Longitudinal capture of gait, speech and cognition signals is a clinical form of the same idea, applied within specialized care rather than through consumer devices.",
         "related": ["digital-biomarker", "neuroanalytics", "de-identification"],
+    },
+    {
+        "slug": "sbar",
+        "term": "SBAR",
+        "short": "Situation, Background, Assessment, Recommendation: a standard structure nurses use to tell a physician about a change in a patient's condition.",
+        "body": """
+<p>SBAR is a short, structured way to communicate a clinical concern, widely used in hospitals and long-term care. The <strong>Situation</strong> says what is happening now; the <strong>Background</strong> gives the relevant history, medications and recent results; the <strong>Assessment</strong> is the nurse's view of what is going on; and the <strong>Recommendation</strong> (or Request) states what the nurse is asking for.</p>
+<p>A good SBAR depends on having the right facts at hand: the latest lab results, recent hospital notes and the resident's <a href="/glossary/goals-of-care/">goals of care</a>. When those live on paper, assembling them during an evening call is slow and error-prone.</p>
+""",
+        "why": "<a href=\"/long-term-care/\">ChartDesk</a> drafts an SBAR from the resident's record, with sources linked and goals of care shown first, for the nurse to review and send.",
+        "related": ["goals-of-care", "clinician-in-the-loop"],
+    },
+    {
+        "slug": "goals-of-care",
+        "term": "Goals of care",
+        "short": "A resident's documented wishes and agreed plan for the kind of care they want, including whether a hospital transfer fits those wishes.",
+        "body": """
+<p>Goals of care describe what matters most to a person and the level of treatment they want, agreed through conversation with the person or their substitute decision-maker and the care team. In long-term care, they often guide decisions such as whether to treat a problem in the home or transfer the resident to hospital.</p>
+<p>These wishes only help if they are visible at the moment a decision is made. Surfacing them first, before the clinical details, keeps urgent decisions aligned with what the resident wants.</p>
+""",
+        "why": "When a resident's condition changes, <a href=\"/long-term-care/\">ChartDesk</a> shows goals of care at the top of the SBAR draft, to help avoid transfers the resident would not want.",
+        "related": ["sbar", "care-coordination"],
     },
 ]

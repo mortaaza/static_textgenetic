@@ -365,3 +365,13 @@ h1,h2,h3,h4{font-family:var(--head)}
   .nav--inline a{padding:6px 0;border:0;white-space:nowrap;font-size:.84rem}
   .nav--inline .nav__cta{display:none}
 }
+
+/* ---------- Fixes (Nov 2026) ---------- */
+.focus-card.focus-card--feature p{color:#cdd8f3}          /* was overridden by .focus-card p */
+.page a.btn--primary{color:#fff}                          /* .page a turned CTA text blue-on-blue */
+.page .term-list{padding-left:0}
+@media (max-width:760px){                                  /* sub-page menu overlapped the logo on phones */
+  .header__inner:has(.nav--inline) .brand__wordmark{display:none}
+  .nav--inline{flex:1;min-width:0;max-width:none;margin-left:16px;justify-content:flex-end}
+}
+@media (max-width:420px){.nav--inline{justify-content:flex-start}}
