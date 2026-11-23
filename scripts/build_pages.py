@@ -8,13 +8,26 @@ import datetime, html, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import SITE, TOPICS, GLOSSARY  # noqa: E402
+from content import SITE, TOPICS, GLOSSARY, PAGES  # noqa: E402
 
 TODAY = datetime.date.today().isoformat()
 
 
 def esc(s):
     return html.escape(s, quote=True)
+
+
+NAV_MENU = """<div class="nav__group">
+          <button class="nav__drop" type="button" aria-expanded="false" aria-haspopup="true">Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="nav__menu">
+            <a class="nav__hot" href="/long-term-care/"><b>ChartDesk</b><span>AI for paper records in long-term care</span></a>
+            <a href="/long-term-care/demo/"><b>Try the ChartDesk demo</b><span>Step-by-step guide, fictional records</span></a>
+            <a href="/health-workflow-automation/"><b>Care coordination platform</b><span>Registry, reassessments and follow-ups</span></a>
+            <a href="/neuroanalytics/"><b>Neuroanalytics</b><span>Brain-health biomarkers over time</span></a>
+            <a href="/predictive-maintenance-ai/"><b>City of Kitchener fleet pilot</b><span>Predictive maintenance, 2025</span></a>
+            <a class="nav__all" href="/projects/">All projects &rarr;</a>
+          </div>
+        </div>"""
 
 
 def head(title, description, path, jsonld):
@@ -39,7 +52,7 @@ def head(title, description, path, jsonld):
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/styles.css?v=5" />
+  <link rel="stylesheet" href="/css/styles.css?v=7" />
   <style>html{{scroll-snap-type:none}}</style>
   <script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>
 </head>
@@ -50,7 +63,14 @@ def head(title, description, path, jsonld):
         <img class="brand__mark" src="/assets/logo-mark.png" alt="" width="29" height="40" />
         <img class="brand__wordmark" src="/assets/logo-wordmark.png" alt="TextGenetic" width="198" height="28" />
       </a>
-      <nav class="nav nav--inline"><a href="/long-term-care/">Long-term care</a><a href="/neuroanalytics/">Neuroanalytics</a><a href="/predictive-maintenance-ai/">Case study</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a class="nav__cta" href="/#contact">Talk to us</a></nav>
+      <nav class="nav" id="nav">
+        {NAV_MENU}
+        <a href="/isc-testing-stream/">Credentials</a>
+        <a href="/about/">About</a>
+        <a class="nav__demo" href="/long-term-care/demo/">Try the demo</a>
+        <a class="nav__cta" href="/#contact">Talk to us</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 """
@@ -59,9 +79,10 @@ def head(title, description, path, jsonld):
 def footer():
     return """  <footer class="page--footer"><div class="container footer__inner">
     <span class="footer__copy">© <span id="year">2026</span> TextGenetic AI Inc. · Kitchener, Ontario, Canada</span>
-    <nav class="footer__nav"><a href="/">Home</a><a href="/long-term-care/">Long-term care</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
+    <nav class="footer__nav"><a href="/">Home</a><a href="/projects/">Projects</a><a href="/long-term-care/">ChartDesk</a><a href="/long-term-care/demo/">Demo</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
   </div></footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script src="/js/nav.js?v=1"></script>
 </body>
 </html>
 """
@@ -112,7 +133,7 @@ for t in TOPICS:
     article_ld = {"@context": "https://schema.org", "@type": "Article", "headline": t["h1"], "description": t["description"],
                   "author": {"@type": "Organization", "name": "TextGenetic AI Inc."}, "publisher": {"@type": "Organization", "name": "TextGenetic AI Inc.", "logo": {"@type": "ImageObject", "url": SITE + "/assets/favicon-512.png"}},
                   "mainEntityOfPage": SITE + path, "dateModified": TODAY}
-    body = f"""  <main class="page page--topic">
+    body = f"""  <main class="page page--topic {t.get('cls', '')}">
     {crumb_html}
     <p class="kicker">{esc(t['kicker'])}</p>
     <h1>{t['h1']}</h1>
@@ -123,6 +144,23 @@ for t in TOPICS:
   </main>
 """
     write(path, head(t["title"], t["description"], path, [article_ld, crumb_ld]) + body + footer())
+    urls.append(path)
+
+# ---- Extra pages (projects index, demo guide) --------------------------------
+for t in PAGES:
+    path = t["path"]
+    crumb_html, crumb_ld = crumbs([("Home", "/")] + t["crumbs"])
+    page_ld = {"@context": "https://schema.org", "@type": "WebPage", "name": t["title"], "description": t["description"], "url": SITE + path, "dateModified": TODAY}
+    body = f"""  <main class="page page--topic {t.get('cls', '')}">
+    {crumb_html}
+    <p class="kicker">{esc(t['kicker'])}</p>
+    <h1>{t['h1']}</h1>
+    <p class="lead">{t['lead']}</p>
+    {t['body']}
+    {cta_box(*t['cta']) if t.get('cta') else ''}
+  </main>
+"""
+    write(path, head(t["title"], t["description"], path, [page_ld, crumb_ld]) + body + footer())
     urls.append(path)
 
 # ---- Glossary index ----------------------------------------------------------

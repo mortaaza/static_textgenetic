@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ChartDesk: AI for paper records in long-term care — TextGenetic AI</title>
-  <meta name="description" content="ChartDesk turns the paper side of a long-term care resident&#x27;s chart (faxed labs, hospital reports, behaviour sheets) into a searchable, source-linked record for the nurse in charge, with nurses approving everything." />
+  <meta name="description" content="ChartDesk turns the paper side of a long-term care resident&#x27;s chart (faxed labs, hospital reports, handwritten notes) into a searchable, source-linked record for the nurse in charge. See what we built, how it works, and try the demo." />
   <link rel="canonical" href="https://www.textgenetic.com/long-term-care/" />
   <meta property="og:title" content="ChartDesk: AI for paper records in long-term care — TextGenetic AI" />
-  <meta property="og:description" content="ChartDesk turns the paper side of a long-term care resident&#x27;s chart (faxed labs, hospital reports, behaviour sheets) into a searchable, source-linked record for the nurse in charge, with nurses approving everything." />
+  <meta property="og:description" content="ChartDesk turns the paper side of a long-term care resident&#x27;s chart (faxed labs, hospital reports, handwritten notes) into a searchable, source-linked record for the nurse in charge. See what we built, how it works, and try the demo." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.textgenetic.com/long-term-care/" />
   <meta property="og:image" content="https://www.textgenetic.com/assets/og-image.png" />
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/styles.css?v=5" />
+  <link rel="stylesheet" href="/css/styles.css?v=7" />
   <style>html{scroll-snap-type:none}</style>
-  <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "ChartDesk: the paper side of the chart, <em class=\"acc\">finally searchable</em>", "description": "ChartDesk turns the paper side of a long-term care resident's chart (faxed labs, hospital reports, behaviour sheets) into a searchable, source-linked record for the nurse in charge, with nurses approving everything.", "author": {"@type": "Organization", "name": "TextGenetic AI Inc."}, "publisher": {"@type": "Organization", "name": "TextGenetic AI Inc.", "logo": {"@type": "ImageObject", "url": "https://www.textgenetic.com/assets/favicon-512.png"}}, "mainEntityOfPage": "https://www.textgenetic.com/long-term-care/", "dateModified": "2026-11-23"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.textgenetic.com/"}, {"@type": "ListItem", "position": 2, "name": "Long-term care", "item": "https://www.textgenetic.com/long-term-care/"}]}]</script>
+  <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "ChartDesk: the paper side of the chart, <em class=\"acc\">finally searchable</em>", "description": "ChartDesk turns the paper side of a long-term care resident's chart (faxed labs, hospital reports, handwritten notes) into a searchable, source-linked record for the nurse in charge. See what we built, how it works, and try the demo.", "author": {"@type": "Organization", "name": "TextGenetic AI Inc."}, "publisher": {"@type": "Organization", "name": "TextGenetic AI Inc.", "logo": {"@type": "ImageObject", "url": "https://www.textgenetic.com/assets/favicon-512.png"}}, "mainEntityOfPage": "https://www.textgenetic.com/long-term-care/", "dateModified": "2026-11-23"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.textgenetic.com/"}, {"@type": "ListItem", "position": 2, "name": "ChartDesk", "item": "https://www.textgenetic.com/long-term-care/"}]}]</script>
 </head>
 <body>
   <header class="site-header">
@@ -29,42 +29,115 @@
         <img class="brand__mark" src="/assets/logo-mark.png" alt="" width="29" height="40" />
         <img class="brand__wordmark" src="/assets/logo-wordmark.png" alt="TextGenetic" width="198" height="28" />
       </a>
-      <nav class="nav nav--inline"><a href="/long-term-care/">Long-term care</a><a href="/neuroanalytics/">Neuroanalytics</a><a href="/predictive-maintenance-ai/">Case study</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a class="nav__cta" href="/#contact">Talk to us</a></nav>
+      <nav class="nav" id="nav">
+        <div class="nav__group">
+          <button class="nav__drop" type="button" aria-expanded="false" aria-haspopup="true">Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="nav__menu">
+            <a class="nav__hot" href="/long-term-care/"><b>ChartDesk</b><span>AI for paper records in long-term care</span></a>
+            <a href="/long-term-care/demo/"><b>Try the ChartDesk demo</b><span>Step-by-step guide, fictional records</span></a>
+            <a href="/health-workflow-automation/"><b>Care coordination platform</b><span>Registry, reassessments and follow-ups</span></a>
+            <a href="/neuroanalytics/"><b>Neuroanalytics</b><span>Brain-health biomarkers over time</span></a>
+            <a href="/predictive-maintenance-ai/"><b>City of Kitchener fleet pilot</b><span>Predictive maintenance, 2025</span></a>
+            <a class="nav__all" href="/projects/">All projects &rarr;</a>
+          </div>
+        </div>
+        <a href="/isc-testing-stream/">Credentials</a>
+        <a href="/about/">About</a>
+        <a class="nav__demo" href="/long-term-care/demo/">Try the demo</a>
+        <a class="nav__cta" href="/#contact">Talk to us</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
-  <main class="page page--topic">
-    <ol class="crumbs"><li><a href="/">Home</a></li><li aria-current="page">Long-term care</li></ol>
-    <p class="kicker">Long-term care · ChartDesk · In development</p>
+  <main class="page page--topic page--wide">
+    <ol class="crumbs"><li><a href="/">Home</a></li><li aria-current="page">ChartDesk</li></ol>
+    <p class="kicker">Project · Long-term care · ChartDesk · Working prototype</p>
     <h1>ChartDesk: the paper side of the chart, <em class="acc">finally searchable</em></h1>
-    <p class="lead">In many Ontario long-term care homes, much of a resident's record still lives on paper. Lab results and hospital reports arrive by fax and go into binders; behaviour sheets are filled in by hand. ChartDesk is a scan-to-chart desk for the nurse in charge, built with the nurses and physicians who do this work every day.</p>
+    <p class="lead">In many long-term care homes, much of a resident's record still lives on paper. Lab results and hospital reports arrive by fax and go into binders; behaviour sheets and notes are written by hand. ChartDesk reads those pages, files them to the right resident, and puts the right information, with its source, in front of the nurse and physician. A working prototype is online today.</p>
     
-<h2>What we heard on the floor</h2>
-<p>We spent time on site in an Ontario long-term care home with nurses, office staff and the attending physician. The message was consistent: the information exists, but it is hard to find when it matters. As one team member put it, <em>"We're wasting so much time to look for things."</em> When a resident's condition changes, the nurse calling the physician does not always have the latest results and goals of care in hand.</p>
+<div class="demo-card">
+  <div>
+    <h2>Try the working demo</h2>
+    <p>Explore ChartDesk with 56 fictional residents and 377 scanned, faxed and handwritten pages. No real resident information is used.</p>
+    <a class="btn btn--primary" href="https://chartdesk.textgenetic.com" target="_blank" rel="noopener">Open the demo &rarr;</a>
+    <a class="btn btn--ghost-light" href="/long-term-care/demo/">Step-by-step guide</a>
+  </div>
+  <div class="creds-box">
+    <div><span>Username</span><b>demo</b></div>
+    <div><span>Password</span><b>demo</b></div>
+    <small>Works on a computer, tablet or phone.</small>
+  </div>
+</div>
 
-<h2>What ChartDesk does</h2>
+<h2>Who it is for</h2>
+<p>Older adults living in long-term care, many of them living with dementia, and the people who care for them: the nurse in charge, the attending physician or nurse practitioner, and the office staff who handle referrals and transfers. Every resident deserves care informed by their whole story, including the parts that are still on paper.</p>
+
+<h2>What we observed</h2>
+<p>In October 2026 we spent three days on site with a long-term care team in Ontario and the office of its attending physician. We sat with the nursing and administration desk, the reception team, the physician during his weekly round workflow, and the clinic staff who manage referrals. What we observed:</p>
 <ul>
-  <li><strong>Capture &amp; file.</strong> Faxes and scans are read and matched to the right resident. A nurse confirms with one tap; nothing is filed on its own.</li>
-  <li><strong>Find.</strong> Search by exact words or in plain language. Every answer links to the original page, and if something is not in the record, ChartDesk says so instead of guessing.</li>
-  <li><strong>Due &amp; overdue.</strong> Follow-ups mentioned in documents, such as a repeat blood test, become a visible due list for each resident.</li>
-  <li><strong>Change in condition.</strong> Drafts an <a href="/glossary/sbar/">SBAR</a> for the on-call physician with <a href="/glossary/goals-of-care/">goals of care</a> shown first, to help avoid unnecessary hospital transfers.</li>
-  <li><strong>Doctor-day pack.</strong> Before the physician's weekly round, one page per resident: the week's nursing notes, new results, behaviour summary and what is due, each linked to its source.</li>
-  <li><strong>Referrals and transfers.</strong> The nurse writes the reason; ChartDesk adds goals of care, history, medications and recent results, so the package is complete, and tracks whether it was received.</li>
-  <li><strong>Behaviour trends.</strong> Handwritten behaviour observation sheets become trends the care team can actually see.</li>
+  <li><strong>Finding information takes much of the day.</strong> As one team member put it, <em>"We're wasting so much time to look for things."</em> Faxed lab results are filed on paper in the chart, not scanned.</li>
+  <li><strong>Results are retyped.</strong> When a result needs action, staff search the chart for the latest related values and type them into a message for the physician.</li>
+  <li><strong>Doctor days run on paper.</strong> A week of concerns and handwritten behaviour sheets are gathered for the physician to review, sign and file.</li>
+  <li><strong>Referrals and transfers are assembled by hand,</strong> with a different form for each destination: 5 to 10 minutes each, if nobody interrupts.</li>
+  <li><strong>Follow-ups are hard to track,</strong> because they sit inside progress notes and outside reports.</li>
+  <li><strong>The same information is entered several times</strong> across separate systems and paper.</li>
 </ul>
+<p>When information is fragmented, care coordination becomes harder, and the risk of missed information and delayed care goes up.</p>
+
+<h2>What we built</h2>
+<p>A working web application, built in November 2026 directly from those observations, and tested on realistic records we created for the purpose.</p>
+<div class="stat-row">
+  <div><strong>56</strong><span>fictional residents, each with a full paper history</span></div>
+  <div><strong>377</strong><span>page images: faxes, photocopies, forms and handwriting</span></div>
+  <div><strong>97.7%</strong><span>of words read correctly from the page images</span></div>
+  <div><strong>962 / 962</strong><span>lab values and every resident name read correctly</span></div>
+</div>
+<p class="small" style="font-size:.88rem">Measured on our own test pages, degraded to look faxed and photocopied. Real-world accuracy will be measured with partner homes.</p>
+
+<figure class="shot"><img src="/assets/chartdesk/1-inbox.jpg" alt="ChartDesk fax and scan inbox: a faxed clinic note beside the resident ChartDesk suggests" loading="lazy" width="1920" height="1200"></figure>
+<figcaption>The fax and scan inbox. ChartDesk reads the page, finds the name and date of birth, and suggests the resident; here it flags a misspelled name. A nurse confirms.</figcaption>
+
+<ul>
+  <li><strong>Capture and file.</strong> Faxes, scans and phone photos are read and matched to the right resident by name and date of birth. A nurse confirms with one tap; nothing is filed on its own.</li>
+  <li><strong>Two views of every record.</strong> An exact copy of every original page, and an electronic chart organized by importance: goals of care first, then results, follow-ups and documents.</li>
+  <li><strong>Find.</strong> Ask in plain words. The answer cites the exact page it came from; if the record does not say, ChartDesk answers "Not found in the record" instead of guessing.</li>
+  <li><strong>Due and overdue.</strong> Follow-ups written inside reports, such as "repeat potassium in 48 to 72 hours", become a visible due list.</li>
+  <li><strong>Doctor-day pack.</strong> Before the physician's round: what changed this week for each resident, with sources, and who has nothing new.</li>
+  <li><strong>Referrals and transfers.</strong> The nurse writes the reason; ChartDesk adds goals of care, history, medications, allergies and recent results, then tracks whether the referral was received.</li>
+  <li><strong>Change in condition.</strong> Drafts an <a href="/glossary/sbar/">SBAR</a> for the physician with <a href="/glossary/goals-of-care/">goals of care</a> shown first, to help avoid unnecessary hospital transfers.</li>
+  <li><strong>Behaviour trends.</strong> Handwritten behaviour observation sheets become an hour-by-hour pattern the team can see.</li>
+  <li><strong>Activity log.</strong> Every sign-in, search, chart view, filing and approval is recorded.</li>
+</ul>
+
+<figure class="shot"><img src="/assets/chartdesk/3-original.jpg" alt="An original faxed lab report shown beside the text ChartDesk read from it" loading="lazy" width="1920" height="1200"></figure>
+<figcaption>Explainable by design: every page can be opened beside what ChartDesk read from it, and read again live.</figcaption>
+
+<h2>How it works</h2>
+<ol class="timeline">
+  <li><b>Read.</b> A vision model reads each page image, including faxes, photocopies and handwriting, and keeps the text exactly as written.</li>
+  <li><b>Match.</b> Name and date of birth are compared with the resident list. A one-letter misspelling is flagged for checking; a page for someone who does not live in the home is not matched.</li>
+  <li><b>Extract.</b> Lab values and follow-up instructions are pulled into the chart, each linked to its line on the original page.</li>
+  <li><b>Find and draft.</b> Search ranks the matching pages; the assistant answers only from those pages and cites them. Drafts (SBAR, referral, round pack) use only facts from the chart.</li>
+  <li><b>Approve.</b> A nurse or physician reviews every filing and draft before it reaches the chart. ChartDesk does not diagnose or suggest treatment.</li>
+</ol>
 
 <h2>People stay in charge</h2>
 <p>ChartDesk organizes, finds and drafts. It does not make clinical decisions. Every draft is reviewed by a nurse or physician before it reaches the chart, in line with our <a href="/glossary/clinician-in-the-loop/">clinician-in-the-loop</a> principle.</p>
 
 <h2>Privacy by design</h2>
 <ul>
-  <li>The home remains the custodian of resident information; we act only as its agent under a written agreement.</li>
+  <li>Designed for Ontario's PHIPA and Canada's PIPEDA. The home remains the custodian of resident information; we act only as its agent under a written agreement.</li>
   <li>No resident data is used until a privacy agreement and privacy impact assessment are in place.</li>
   <li>Before any resident information is used, it will be stored and processed in Canada, encrypted and access-logged. It is never used to train AI models.</li>
-  <li>Research and development use realistic test records, not real resident data.</li>
+  <li>Research and development use realistic test records, not real resident data. The demo contains fictional people only.</li>
 </ul>
 
-<h2>Where we are</h2>
-<p>ChartDesk is in research and prototyping, shaped by on-site discovery with nurses, office staff and a long-term care physician. We are looking for Ontario homes interested in helping test it. The same discipline behind our <a href="/health-workflow-automation/">workflow automation</a> and <a href="/neuroanalytics/">neuroanalytics</a> work applies here: measured, reviewable and private.</p>
+<h2>Timeline</h2>
+<ol class="timeline">
+  <li><b>October 2026.</b> Three days of on-site discovery with a long-term care team and its attending physician's office.</li>
+  <li><b>November 2026.</b> Working prototype online, tested on 377 realistic page images; doctor-day pack, referral package and photo upload added from what the team asked for.</li>
+  <li><b>Next.</b> Test with nurses and physicians on realistic records, measure time saved finding and filing, then pilot in Ontario homes once privacy agreements are in place.</li>
+</ol>
 
     <aside class="cta-box">
       <strong>Run a long-term care home in Ontario?</strong>
@@ -75,8 +148,9 @@
   </main>
   <footer class="page--footer"><div class="container footer__inner">
     <span class="footer__copy">© <span id="year">2026</span> TextGenetic AI Inc. · Kitchener, Ontario, Canada</span>
-    <nav class="footer__nav"><a href="/">Home</a><a href="/long-term-care/">Long-term care</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
+    <nav class="footer__nav"><a href="/">Home</a><a href="/projects/">Projects</a><a href="/long-term-care/">ChartDesk</a><a href="/long-term-care/demo/">Demo</a><a href="/glossary/">Glossary</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
   </div></footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script src="/js/nav.js?v=1"></script>
 </body>
 </html>

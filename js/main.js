@@ -1,6 +1,7 @@
 // TextGenetic AI — lightweight interactions (no dependencies)
 (function () {
   document.documentElement.classList.add('js');
+  window.TG_MAIN = true;
 
   var toggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');

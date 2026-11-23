@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
 
   <script type="application/ld+json">
   {
@@ -71,11 +71,20 @@
         <img class="brand__wordmark" src="assets/logo-wordmark.png" alt="TextGenetic" width="198" height="28" />
       </a>
       <nav class="nav" id="nav">
-        <a href="#focus">Focus</a>
+        <div class="nav__group">
+          <button class="nav__drop" type="button" aria-expanded="false" aria-haspopup="true">Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="nav__menu">
+            <a class="nav__hot" href="/long-term-care/"><b>ChartDesk</b><span>AI for paper records in long-term care</span></a>
+            <a href="/long-term-care/demo/"><b>Try the ChartDesk demo</b><span>Step-by-step guide, fictional records</span></a>
+            <a href="/health-workflow-automation/"><b>Care coordination platform</b><span>Registry, reassessments and follow-ups</span></a>
+            <a href="/neuroanalytics/"><b>Neuroanalytics</b><span>Brain-health biomarkers over time</span></a>
+            <a href="/predictive-maintenance-ai/"><b>City of Kitchener fleet pilot</b><span>Predictive maintenance, 2025</span></a>
+            <a class="nav__all" href="/projects/">All projects &rarr;</a>
+          </div>
+        </div>
         <a href="#isc">Credentials</a>
-        <a href="#projects">Projects</a>
         <a href="#about">About</a>
-        <a href="#process">How we work</a>
+        <a class="nav__demo" href="/long-term-care/demo/">Try the demo</a>
         <a class="nav__cta" href="#contact">Talk to us</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -88,10 +97,41 @@
     <section class="panel hero" id="home">
       <div class="hero__bg" aria-hidden="true"><span class="orb orb--1"></span><span class="orb orb--2"></span></div>
       <div class="hero__slides" id="heroSlides" aria-roledescription="carousel" aria-label="What we do">
-      <div class="container hero__inner is-active" role="group" aria-roledescription="slide" aria-label="Brain-health AI">
+      <!-- Slide 1 · Long-term care (ChartDesk) -->
+      <div class="container hero__inner is-active" role="group" aria-roledescription="slide" aria-label="Long-term care">
+        <div class="hero__copy">
+          <p class="kicker light">Long-term care · ChartDesk · Live demo</p>
+          <h1 class="hero__title">The paper chart,<br/><span class="hl">finally searchable.</span></h1>
+          <p class="hero__lead">ChartDesk reads the faxes and scans a long-term care home receives, files each page to the right resident, and puts results, follow-ups and goals of care in front of the nurse in charge. A nurse approves everything.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/long-term-care/demo/">Try the demo <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost-light" href="/long-term-care/">How ChartDesk works</a>
+          </div>
+        </div>
+        <div class="hero__visual hero__visual--ltc" aria-hidden="true">
+          <div class="fax">
+            <div class="fax__head">FAX · LAB REPORT</div>
+            <i style="--w:70%"></i><i style="--w:52%"></i><i class="gap"></i>
+            <i style="--w:88%"></i><i style="--w:80%"></i><i class="hot" style="--w:84%"></i><i style="--w:76%"></i><i class="gap"></i>
+            <i style="--w:60%"></i>
+          </div>
+          <svg class="fax__arrow" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h34M26 4l10 8-10 8"/></svg>
+          <div class="score score--ltc">
+            <div class="score__head"><span class="score__dot"></span>Filed to resident chart</div>
+            <div class="chartrow"><span>Lab report</span><b>Read from fax</b></div>
+            <div class="chartrow"><span>Potassium</span><b class="hot">5.8 high</b></div>
+            <div class="chartrow"><span>Follow-up</span><b>Repeat in 3 days</b></div>
+            <div class="chartrow"><span>Goals of care</span><b>Shown first</b></div>
+            <div class="score__foot"><svg><use href="#i-check"/></svg> Nurse confirmed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 · Brain-health AI -->
+      <div class="container hero__inner" role="group" aria-roledescription="slide" aria-label="Brain-health AI">
         <div class="hero__copy">
           <p class="kicker light">Health AI · Neuroanalytics · Long-term care</p>
-          <h1 class="hero__title">Brain-health AI,<br/><span class="hl">engineered with rigor.</span></h1>
+          <h2 class="hero__title">Brain-health AI,<br/><span class="hl">engineered with rigor.</span></h2>
           <p class="hero__lead">We turn clinical signals into neural biomarkers and automate the workflows behind specialized care — on a predictive engine first proven in the field with the City of Kitchener.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contact">Talk to us <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
@@ -125,36 +165,6 @@
         </div>
       </div>
 
-      <!-- Slide 2 · Long-term care (ChartDesk) -->
-      <div class="container hero__inner" role="group" aria-roledescription="slide" aria-label="Long-term care">
-        <div class="hero__copy">
-          <p class="kicker light">Long-term care · ChartDesk · In development</p>
-          <h2 class="hero__title">The paper chart,<br/><span class="hl">finally searchable.</span></h2>
-          <p class="hero__lead">ChartDesk reads the faxes and scans a long-term care home receives, files each page to the right resident, and puts results, follow-ups and goals of care in front of the nurse in charge. A nurse approves everything.</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="long-term-care/">See ChartDesk <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--ghost-light" href="#contact">Talk to us</a>
-          </div>
-        </div>
-        <div class="hero__visual hero__visual--ltc" aria-hidden="true">
-          <div class="fax">
-            <div class="fax__head">FAX · LAB REPORT</div>
-            <i style="--w:70%"></i><i style="--w:52%"></i><i class="gap"></i>
-            <i style="--w:88%"></i><i style="--w:80%"></i><i class="hot" style="--w:84%"></i><i style="--w:76%"></i><i class="gap"></i>
-            <i style="--w:60%"></i>
-          </div>
-          <svg class="fax__arrow" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h34M26 4l10 8-10 8"/></svg>
-          <div class="score score--ltc">
-            <div class="score__head"><span class="score__dot"></span>Filed to resident chart</div>
-            <div class="chartrow"><span>Lab report</span><b>Read from fax</b></div>
-            <div class="chartrow"><span>Potassium</span><b class="hot">5.8 high</b></div>
-            <div class="chartrow"><span>Follow-up</span><b>Repeat in 3 days</b></div>
-            <div class="chartrow"><span>Goals of care</span><b>Shown first</b></div>
-            <div class="score__foot"><svg><use href="#i-check"/></svg> Nurse confirmed</div>
-          </div>
-        </div>
-      </div>
-
       <!-- Slide 3 · Proven in the field -->
       <div class="container hero__inner" role="group" aria-roledescription="slide" aria-label="Proven in the field">
         <div class="hero__copy">
@@ -182,8 +192,8 @@
       <div class="hero__nav" id="heroNav" hidden>
         <button type="button" class="hero__arrow" data-slide="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
         <div class="hero__dots" role="tablist" aria-label="Choose a slide">
-          <button type="button" role="tab" aria-selected="true" aria-label="Brain-health AI" data-slide="0"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Long-term care" data-slide="1"></button>
+          <button type="button" role="tab" aria-selected="true" aria-label="Long-term care" data-slide="0"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Brain-health AI" data-slide="1"></button>
           <button type="button" role="tab" aria-selected="false" aria-label="Proven in the field" data-slide="2"></button>
         </div>
         <button type="button" class="hero__arrow" data-slide="next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -227,8 +237,8 @@
             <div class="icon"><svg><use href="#i-search"/></svg></div>
             <h3>Long-term care records</h3>
             <p>ChartDesk turns faxed labs, hospital reports and paper behaviour sheets into one searchable, source-linked record for the nurse in charge.</p>
-            <div class="tags"><span>Scan-to-chart</span><span>SBAR drafts</span><span>In development</span></div>
-            <a class="card-link" href="long-term-care/">Learn more →</a>
+            <div class="tags"><span>Scan-to-chart</span><span>SBAR drafts</span><span>Live demo</span></div>
+            <a class="card-link" href="long-term-care/">Learn more →</a> &nbsp; <a class="card-link" href="/long-term-care/demo/">Try the demo →</a>
           </article>
         </div>
       </div>
@@ -260,6 +270,16 @@
           <h2 class="section__title">Proven in <em class="acc">real operations.</em></h2>
         </div>
         <div class="projects">
+          <article class="proj proj--wide" data-reveal>
+            <div class="proj__visual proj__visual--shot" aria-hidden="true"><img src="assets/chartdesk/1-inbox.jpg" alt="" loading="lazy" width="1920" height="1200"></div>
+            <div class="proj__body">
+              <span class="badge">Long-term care · Working prototype · 2026</span>
+              <h3>ChartDesk: AI for paper records in long-term care</h3>
+              <p>Built from three days on site with a long-term care team and its physician. ChartDesk reads faxes, scans and handwritten pages, files each to the right resident, and answers questions with a link to the original page. A nurse approves everything.</p>
+              <ul class="proj__facts"><li><b>377</b> realistic page images read</li><li><b>962 / 962</b> lab values read correctly</li><li><b>8</b> working screens, from inbox to referrals</li></ul>
+              <p class="proj__links"><a class="btn btn--primary" href="/long-term-care/demo/">Try the demo <svg class="btn__icon"><use href="#i-arrow"/></svg></a> <a class="card-link" href="/long-term-care/">Project details →</a></p>
+            </div>
+          </article>
           <article class="proj" data-reveal>
             <div class="proj__visual proj__visual--care" aria-hidden="true">
               <div class="mock">
@@ -312,6 +332,7 @@
             </div>
           </article>
         </div>
+        <p class="proj__all"><a class="card-link" href="/projects/">All projects, in detail →</a></p>
       </div>
     </section>
 
@@ -388,7 +409,7 @@
             <img class="brand__wordmark" src="assets/logo-wordmark-light.png" alt="TextGenetic" width="198" height="28" />
           </a>
           <nav class="footer__nav">
-            <a href="neuroanalytics/">Neuroanalytics</a><a href="predictive-maintenance-ai/">Case study</a><a href="glossary/">Glossary</a><a href="about/">About</a>
+            <a href="/projects/">Projects</a><a href="/long-term-care/">ChartDesk</a><a href="/long-term-care/demo/">Demo</a><a href="neuroanalytics/">Neuroanalytics</a><a href="predictive-maintenance-ai/">Case study</a><a href="glossary/">Glossary</a><a href="about/">About</a>
             <a href="https://axionfleetai.com" target="_blank" rel="noopener">Axion Fleet</a>
             <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
           </nav>
@@ -402,6 +423,7 @@
   <a class="sticky-cta" href="#contact" id="stickyCta">Talk to us <svg><use href="#i-arrow"/></svg></a>
   <button class="to-top" id="toTop" type="button" aria-label="Back to top" data-top><svg><use href="#i-up"/></svg></button>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
+  <script src="js/nav.js?v=1"></script>
 </body>
 </html>
