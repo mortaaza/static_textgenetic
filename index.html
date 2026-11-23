@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=5" />
+  <link rel="stylesheet" href="css/styles.css?v=6" />
 
   <script type="application/ld+json">
   {
@@ -87,7 +87,8 @@
     <!-- 1 · Hero -->
     <section class="panel hero" id="home">
       <div class="hero__bg" aria-hidden="true"><span class="orb orb--1"></span><span class="orb orb--2"></span></div>
-      <div class="container hero__inner">
+      <div class="hero__slides" id="heroSlides" aria-roledescription="carousel" aria-label="What we do">
+      <div class="container hero__inner is-active" role="group" aria-roledescription="slide" aria-label="Brain-health AI">
         <div class="hero__copy">
           <p class="kicker light">Health AI · Neuroanalytics · Long-term care</p>
           <h1 class="hero__title">Brain-health AI,<br/><span class="hl">engineered with rigor.</span></h1>
@@ -122,6 +123,71 @@
             <div class="score__foot"><svg><use href="#i-check"/></svg> Clinician reviewed</div>
           </div>
         </div>
+      </div>
+
+      <!-- Slide 2 · Long-term care (ChartDesk) -->
+      <div class="container hero__inner" role="group" aria-roledescription="slide" aria-label="Long-term care">
+        <div class="hero__copy">
+          <p class="kicker light">Long-term care · ChartDesk · In development</p>
+          <h2 class="hero__title">The paper chart,<br/><span class="hl">finally searchable.</span></h2>
+          <p class="hero__lead">ChartDesk reads the faxes and scans a long-term care home receives, files each page to the right resident, and puts results, follow-ups and goals of care in front of the nurse in charge. A nurse approves everything.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="long-term-care/">See ChartDesk <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost-light" href="#contact">Talk to us</a>
+          </div>
+        </div>
+        <div class="hero__visual hero__visual--ltc" aria-hidden="true">
+          <div class="fax">
+            <div class="fax__head">FAX · LAB REPORT</div>
+            <i style="--w:70%"></i><i style="--w:52%"></i><i class="gap"></i>
+            <i style="--w:88%"></i><i style="--w:80%"></i><i class="hot" style="--w:84%"></i><i style="--w:76%"></i><i class="gap"></i>
+            <i style="--w:60%"></i>
+          </div>
+          <svg class="fax__arrow" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h34M26 4l10 8-10 8"/></svg>
+          <div class="score score--ltc">
+            <div class="score__head"><span class="score__dot"></span>Filed to resident chart</div>
+            <div class="chartrow"><span>Lab report</span><b>Read from fax</b></div>
+            <div class="chartrow"><span>Potassium</span><b class="hot">5.8 high</b></div>
+            <div class="chartrow"><span>Follow-up</span><b>Repeat in 3 days</b></div>
+            <div class="chartrow"><span>Goals of care</span><b>Shown first</b></div>
+            <div class="score__foot"><svg><use href="#i-check"/></svg> Nurse confirmed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 · Proven in the field -->
+      <div class="container hero__inner" role="group" aria-roledescription="slide" aria-label="Proven in the field">
+        <div class="hero__copy">
+          <p class="kicker light">Municipal · City of Kitchener · 2025</p>
+          <h2 class="hero__title">Predictive AI,<br/><span class="hl">proven in the field.</span></h2>
+          <p class="hero__lead">Chosen as 1 of 3 companies from 10 finalists at Communitech's Fast Track Cities for a $100,000 pilot: predictive maintenance for the City of Kitchener's fleet. The same engine now powers our health work.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="predictive-maintenance-ai/">Read the case study <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost-light" href="#projects">See our work</a>
+          </div>
+        </div>
+        <div class="hero__visual hero__visual--fleet" aria-hidden="true">
+          <div class="mock mock--hero">
+            <div class="mock__bar"><b></b><b></b><b></b><span>Fleet health</span></div>
+            <div class="mock__row"><i class="ok"></i><span style="--w:82%"></span><em>Unit 118 · 96%</em></div>
+            <div class="mock__row"><i class="warn"></i><span style="--w:36%"></span><em>Unit 214 · service in 3d</em></div>
+            <div class="mock__row"><i class="ok"></i><span style="--w:74%"></span><em>Unit 302 · 91%</em></div>
+            <div class="mock__row"><i class="info"></i><span style="--w:58%"></span><em>Unit 127 · watch</em></div>
+            <div class="mock__kpi">Illustrative view · maintenance flagged before breakdown</div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="hero__nav" id="heroNav" hidden>
+        <button type="button" class="hero__arrow" data-slide="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="hero__dots" role="tablist" aria-label="Choose a slide">
+          <button type="button" role="tab" aria-selected="true" aria-label="Brain-health AI" data-slide="0"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Long-term care" data-slide="1"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Proven in the field" data-slide="2"></button>
+        </div>
+        <button type="button" class="hero__arrow" data-slide="next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button type="button" class="hero__pause" id="heroPause" aria-label="Pause slides"><svg viewBox="0 0 24 24" fill="currentColor"><path class="ic-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/><path class="ic-play" d="M8 5l11 7-11 7z"/></svg></button>
       </div>
 
       <!-- Credentials strip (text badges — official marks used only with permission) -->
@@ -336,6 +402,6 @@
   <a class="sticky-cta" href="#contact" id="stickyCta">Talk to us <svg><use href="#i-arrow"/></svg></a>
   <button class="to-top" id="toTop" type="button" aria-label="Back to top" data-top><svg><use href="#i-up"/></svg></button>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>

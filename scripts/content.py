@@ -84,6 +84,8 @@ TOPICS = [
   <li><strong>Find.</strong> Search by exact words or in plain language. Every answer links to the original page, and if something is not in the record, ChartDesk says so instead of guessing.</li>
   <li><strong>Due &amp; overdue.</strong> Follow-ups mentioned in documents, such as a repeat blood test, become a visible due list for each resident.</li>
   <li><strong>Change in condition.</strong> Drafts an <a href="/glossary/sbar/">SBAR</a> for the on-call physician with <a href="/glossary/goals-of-care/">goals of care</a> shown first, to help avoid unnecessary hospital transfers.</li>
+  <li><strong>Doctor-day pack.</strong> Before the physician's weekly round, one page per resident: the week's nursing notes, new results, behaviour summary and what is due, each linked to its source.</li>
+  <li><strong>Referrals and transfers.</strong> The nurse writes the reason; ChartDesk adds goals of care, history, medications and recent results, so the package is complete, and tracks whether it was received.</li>
   <li><strong>Behaviour trends.</strong> Handwritten behaviour observation sheets become trends the care team can actually see.</li>
 </ul>
 
@@ -94,12 +96,12 @@ TOPICS = [
 <ul>
   <li>The home remains the custodian of resident information; we act only as its agent under a written agreement.</li>
   <li>No resident data is used until a privacy agreement and privacy impact assessment are in place.</li>
-  <li>Data is stored in Canada, encrypted and access-logged, and is never used to train AI models.</li>
+  <li>Before any resident information is used, it will be stored and processed in Canada, encrypted and access-logged. It is never used to train AI models.</li>
   <li>Research and development use realistic test records, not real resident data.</li>
 </ul>
 
 <h2>Where we are</h2>
-<p>ChartDesk is in research and prototyping, shaped by on-site discovery and a long-term care physician as our clinical lead. We are looking for Ontario homes interested in helping test it. The same discipline behind our <a href="/health-workflow-automation/">workflow automation</a> and <a href="/neuroanalytics/">neuroanalytics</a> work applies here: measured, reviewable and private.</p>
+<p>ChartDesk is in research and prototyping, shaped by on-site discovery with nurses, office staff and a long-term care physician. We are looking for Ontario homes interested in helping test it. The same discipline behind our <a href="/health-workflow-automation/">workflow automation</a> and <a href="/neuroanalytics/">neuroanalytics</a> work applies here: measured, reviewable and private.</p>
 """,
         "cta": ("Run a long-term care home in Ontario?", "We'd like to learn how paper and faxes work in your home, and explore testing ChartDesk with your team. No resident data is involved until privacy agreements are in place."),
         "related": ["sbar", "goals-of-care", "clinician-in-the-loop", "care-coordination"],

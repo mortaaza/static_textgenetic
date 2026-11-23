@@ -142,6 +142,52 @@
     form.addEventListener('input', function (e) { e.target.classList.remove('invalid'); });
   }
 
+  // Hero slider: three slides, auto-advancing; pauses on hover, focus, the pause button, or when off screen
+  var slidesWrap = document.getElementById('heroSlides');
+  if (slidesWrap) {
+    var slides = Array.prototype.slice.call(slidesWrap.children);
+    var heroNav = document.getElementById('heroNav');
+    var dots = Array.prototype.slice.call(heroNav.querySelectorAll('.hero__dots button'));
+    var pauseBtn = document.getElementById('heroPause');
+    var cur = 0, timer = null, userPaused = reduceMotion, hovering = false;
+    var show = function (n) {
+      cur = (n + slides.length) % slides.length;
+      slides.forEach(function (sl, i) { sl.classList.toggle('is-active', i === cur); sl.setAttribute('aria-hidden', i === cur ? 'false' : 'true'); });
+      dots.forEach(function (d, i) { d.setAttribute('aria-selected', i === cur ? 'true' : 'false'); });
+    };
+    var tick = function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        if (!userPaused && !hovering && !document.hidden && window.scrollY < window.innerHeight * 0.5) show(cur + 1);
+        tick();
+      }, 7000);
+    };
+    var setPaused = function (p) { userPaused = p; pauseBtn.classList.toggle('is-paused', p); pauseBtn.setAttribute('aria-label', p ? 'Play slides' : 'Pause slides'); };
+    heroNav.hidden = false;
+    setPaused(userPaused);
+    heroNav.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      if (b === pauseBtn) { setPaused(!userPaused); tick(); return; }
+      var to = b.getAttribute('data-slide');
+      show(to === 'prev' ? cur - 1 : to === 'next' ? cur + 1 : +to);
+      tick();
+    });
+    var hero = document.getElementById('home');
+    hero.addEventListener('mouseenter', function () { hovering = true; });
+    hero.addEventListener('mouseleave', function () { hovering = false; });
+    hero.addEventListener('focusin', function () { hovering = true; });
+    hero.addEventListener('focusout', function () { hovering = false; });
+    var x0 = null;
+    slidesWrap.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    slidesWrap.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) { show(cur + (dx < 0 ? 1 : -1)); tick(); }
+    }, { passive: true });
+    show(0);
+    tick();
+  }
+
   // Auto year in footer
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
